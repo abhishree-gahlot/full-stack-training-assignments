@@ -34,7 +34,7 @@ function renderCategorySection( category , products)
     const productList = document.createElement("div");
     productList.className = "product-list";
 
-    products.map(product => {
+    products.forEach(product => {
         const card = createProductCard(product);
         productList.appendChild(card);
     });
@@ -75,20 +75,20 @@ function createProductCard(product) {
 
   if (quantity === 0) 
   {
-    const addBtn = document.createElement("button");
-    addBtn.textContent = "Add to Cart";
-    addBtn.className = "add-to-cart-btn";
+    const addButton = document.createElement("button");
+    addButton.textContent = "Add to Cart";
+    addButton.className = "add-to-cart-button";
 
-    addBtn.addEventListener("click", () => {
+    addButton.addEventListener("click", () => {
       addToCart(product);
     });
 
-    action.appendChild(addBtn);
+    action.appendChild(addButton);
   } 
   else 
   {
-    const qtyWrapper = document.createElement("div");
-    qtyWrapper.className = "qty-wrapper";
+    const quantityWrapper = document.createElement("div");
+    quantityWrapper.className = "qty-wrapper";
 
     const minusButton = document.createElement("button");
     minusButton.textContent = "−";
@@ -109,11 +109,11 @@ function createProductCard(product) {
       increaseQuantity(id);
     });
 
-    qtyWrapper.appendChild(minusButton);
-    qtyWrapper.appendChild(quantityText);
-    qtyWrapper.appendChild(addButton);
+    quantityWrapper.appendChild(minusButton);
+    quantityWrapper.appendChild(quantityText);
+    quantityWrapper.appendChild(addButton);
 
-    action.appendChild(qtyWrapper);
+    action.appendChild(quantityWrapper);
   }
 
   info.appendChild(productName);
