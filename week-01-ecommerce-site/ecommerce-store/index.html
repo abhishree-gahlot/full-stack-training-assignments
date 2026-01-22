@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - JoyBlue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="index.html"><img id="brand-img" src="assets/product-images/logo.png" alt="site-logo"></a>
+        <div id="location-text">
+            Delivery to All India Locations
+        </div>
+        
+        <div class="search-box">
+            <select id="category-filter">
+                <option value="all">All Categories</option>
+            </select>
+            <input type="text"  id="search-input" 
+                placeholder=" &#128269; Search for products..." 
+            >
+        </div>
+        
+        <button class="add-to-cart" onclick="location.href='cart.html'">
+            &#128722; My Cart 
+        </button>
+    </div>
+
+    <main id="product-container"></main>
+
+    <footer class="footer">
+        <p>© 2026 JoyBlue. All rights reserved.</p>
+    </footer>
+ 
+    <script src="assets/data/products.js"></script>
+    <script src="js/utils/groupByCategory.js"></script>
+    <script src="js/cart/cart.js"></script>
+    <script src="js/render/renderProducts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
