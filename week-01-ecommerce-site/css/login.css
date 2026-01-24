@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f8fc;
+}
+
+.joyblue-navbar {
+    background-color: #2B79CC;
+}
+
+.login-container {
+    height: calc(100vh - 56px);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-joyblue {
+    background-color: #2B79CC;
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn-joyblue:hover {
+    background-color: #1f5fa3;
+}

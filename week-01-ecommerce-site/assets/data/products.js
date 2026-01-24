@@ -5,7 +5,7 @@ const pharmacyStore = [
     price: 35,
     category: "Pharmacy",
     stock: 50,
-    image: "assets/product-images/pharmacy.jpg"
+    image: "../assets/product-images/pharmacy.jpg"
   },
   {
     id: 102,
@@ -13,7 +13,7 @@ const pharmacyStore = [
     price: 199,
     category: "Pharmacy",
     stock: 40,
-    image: "assets/product-images/pharmacy.jpg"
+    image: "../assets/product-images/pharmacy.jpg"
   },
   {
     id: 103,
@@ -21,7 +21,7 @@ const pharmacyStore = [
     price: 249,
     category: "Pharmacy",
     stock: 20,
-    image: "assets/product-images/pharmacy.jpg"
+    image: "../assets/product-images/pharmacy.jpg"
   },
   {
     id: 104,
@@ -29,7 +29,7 @@ const pharmacyStore = [
     price: 145,
     category: "Pharmacy",
     stock: 30,
-    image: "assets/product-images/pharmacy.jpg"
+    image: "../assets/product-images/pharmacy.jpg"
   },
   {
     id: 105,
@@ -37,7 +37,7 @@ const pharmacyStore = [
     price: 275,
     category: "Pharmacy",
     stock: 25,
-    image:"assets/product-images/pharmacy.jpg"
+    image:"../assets/product-images/pharmacy.jpg"
   },
   {
     id: 106,
@@ -45,7 +45,7 @@ const pharmacyStore = [
     price: 120,
     category: "Pharmacy",
     stock: 60,
-    image: "assets/product-images/pharmacy.jpg"
+    image: "../assets/product-images/pharmacy.jpg"
   },
   {
     id: 107,
@@ -53,7 +53,7 @@ const pharmacyStore = [
     price: 180,
     category: "Pharmacy",
     stock: 45,
-    image: "assets/product-images/pharmacy.jpg"
+    image: "../assets/product-images/pharmacy.jpg"
   },
   {
     id: 108,
@@ -61,7 +61,7 @@ const pharmacyStore = [
     price: 1899,
     category: "Pharmacy",
     stock: 10,
-    image: "assets/product-images/pharmacy.jpg"
+    image: "../assets/product-images/pharmacy.jpg"
   },
   {
     id: 109,
@@ -69,7 +69,7 @@ const pharmacyStore = [
     price: 95,
     category: "Pharmacy",
     stock: 35,
-    image:"assets/product-images/pharmacy.jpg"
+    image:"../assets/product-images/pharmacy.jpg"
   },
   {
     id: 110,
@@ -77,7 +77,7 @@ const pharmacyStore = [
     price: 499,
     category: "Pharmacy",
     stock: 15,
-    image: "assets/product-images/pharmacy.jpg"
+    image: "../assets/product-images/pharmacy.jpg"
   }
 ];
 
@@ -88,7 +88,7 @@ const vegetablesAndFruits = [
     price: 180,
     category: "Vegetables & Fruits",
     stock: 40,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 202,
@@ -96,7 +96,7 @@ const vegetablesAndFruits = [
     price: 60,
     category: "Vegetables & Fruits",
     stock: 50,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 203,
@@ -104,7 +104,7 @@ const vegetablesAndFruits = [
     price: 45,
     category: "Vegetables & Fruits",
     stock: 60,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 204,
@@ -112,7 +112,7 @@ const vegetablesAndFruits = [
     price: 70,
     category: "Vegetables & Fruits",
     stock: 55,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 205,
@@ -120,7 +120,7 @@ const vegetablesAndFruits = [
     price: 85,
     category: "Vegetables & Fruits",
     stock: 50,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 206,
@@ -128,7 +128,7 @@ const vegetablesAndFruits = [
     price: 120,
     category: "Vegetables & Fruits",
     stock: 35,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 207,
@@ -136,7 +136,7 @@ const vegetablesAndFruits = [
     price: 55,
     category: "Vegetables & Fruits",
     stock: 30,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 208,
@@ -144,7 +144,7 @@ const vegetablesAndFruits = [
     price: 65,
     category: "Vegetables & Fruits",
     stock: 45,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 209,
@@ -152,7 +152,7 @@ const vegetablesAndFruits = [
     price: 30,
     category: "Vegetables & Fruits",
     stock: 25,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   },
   {
     id: 210,
@@ -160,7 +160,7 @@ const vegetablesAndFruits = [
     price: 220,
     category: "Vegetables & Fruits",
     stock: 20,
-    image: "assets/product-images/vegetables.jpg"
+    image: "../assets/product-images/vegetables.jpg"
   }
 ];
 
@@ -171,7 +171,7 @@ const dairyAndBreakfast = [
     price: 55,
     category: "Dairy & Breakfast",
     stock: 60,
-    image: "assets/product-images/sample.jpg"
+    image: "../assets/product-images/sample.jpg"
   },
   {
     id: 302,
@@ -179,7 +179,7 @@ const dairyAndBreakfast = [
     price: 90,
     category: "Dairy & Breakfast",
     stock: 40,
-    image: "assets/product-images/sample.jpg"
+    image: "../assets/product-images/sample.jpg"
   },
   {
     id: 303,
@@ -187,7 +187,7 @@ const dairyAndBreakfast = [
     price: 260,
     category: "Dairy & Breakfast",
     stock: 25,
-    image:"assets/product-images/sample.jpg"
+    image:"../assets/product-images/sample.jpg"
   },
   {
     id: 304,
@@ -195,7 +195,7 @@ const dairyAndBreakfast = [
     price: 180,
     category: "Dairy & Breakfast",
     stock: 30,
-    image: "assets/product-images/sample.jpg"
+    image: "../assets/product-images/sample.jpg"
   },
   {
     id: 305,
@@ -203,7 +203,7 @@ const dairyAndBreakfast = [
     price: 45,
     category: "Dairy & Breakfast",
     stock: 50,
-    image: "assets/product-images/sample.jpg"
+    image: "../assets/product-images/sample.jpg"
   },
   {
     id: 306,
@@ -211,7 +211,7 @@ const dairyAndBreakfast = [
     price: 160,
     category: "Dairy & Breakfast",
     stock: 35,
-    image: "assets/product-images/sample.jpg"
+    image: "../assets/product-images/sample.jpg"
   },
   {
     id: 307,
@@ -219,7 +219,7 @@ const dairyAndBreakfast = [
     price: 40,
     category: "Dairy & Breakfast",
     stock: 45,
-    image:"assets/product-images/sample.jpg"
+    image:"../assets/product-images/sample.jpg"
   },
   {
     id: 308,
@@ -227,7 +227,7 @@ const dairyAndBreakfast = [
     price: 190,
     category: "Dairy & Breakfast",
     stock: 30,
-    image: "assets/product-images/sample.jpg"
+    image: "../assets/product-images/sample.jpg"
   },
   {
     id: 309,
@@ -235,7 +235,7 @@ const dairyAndBreakfast = [
     price: 210,
     category: "Dairy & Breakfast",
     stock: 20,
-    image: "assets/product-images/sample.jpg"
+    image: "../assets/product-images/sample.jpg"
   },
   {
     id: 310,
@@ -243,7 +243,7 @@ const dairyAndBreakfast = [
     price: 240,
     category: "Dairy & Breakfast",
     stock: 18,
-    image: "assets/product-images/sample.jpg"
+    image: "../assets/product-images/sample.jpg"
   }
 ];
 
@@ -254,7 +254,7 @@ const coldDrinksAndJuices = [
     price: 65,
     category: "Cold Drinks & Juices",
     stock: 50,
-    image: "assets/product-images/colddrink.webp"
+    image: "../assets/product-images/colddrink.webp"
   },
   {
     id: 402,
@@ -262,7 +262,7 @@ const coldDrinksAndJuices = [
     price: 120,
     category: "Cold Drinks & Juices",
     stock: 35,
-    image: "assets/product-images/colddrink.webp"
+    image: "../assets/product-images/colddrink.webp"
   },
   {
     id: 403,
@@ -270,7 +270,7 @@ const coldDrinksAndJuices = [
     price: 110,
     category: "Cold Drinks & Juices",
     stock: 40,
-    image: "assets/product-images/colddrink.webp"
+    image: "../assets/product-images/colddrink.webp"
   },
   {
     id: 404,
@@ -278,7 +278,7 @@ const coldDrinksAndJuices = [
     price: 45,
     category: "Cold Drinks & Juices",
     stock: 60,
-    image: "assets/product-images/colddrink.webp"
+    image: "../assets/product-images/colddrink.webp"
   },
   {
     id: 405,
@@ -286,7 +286,7 @@ const coldDrinksAndJuices = [
     price: 20,
     category: "Cold Drinks & Juices",
     stock: 100,
-    image: "assets/product-images/colddrink.webp"
+    image: "../assets/product-images/colddrink.webp"
   },
   {
     id: 406,
@@ -294,7 +294,7 @@ const coldDrinksAndJuices = [
     price: 130,
     category: "Cold Drinks & Juices",
     stock: 28,
-    image: "assets/product-images/colddrink.webp"
+    image: "../assets/product-images/colddrink.webp"
   },
   {
     id: 407,
@@ -302,7 +302,7 @@ const coldDrinksAndJuices = [
     price: 95,
     category: "Cold Drinks & Juices",
     stock: 45,
-    image: "assets/product-images/colddrink.webp"
+    image: "../assets/product-images/colddrink.webp"
   },
   {
     id: 408,
@@ -310,7 +310,7 @@ const coldDrinksAndJuices = [
     price: 60,
     category: "Cold Drinks & Juices",
     stock: 38,
-    image:"assets/product-images/colddrink.webp"
+    image:"../assets/product-images/colddrink.webp"
   },
   {
     id: 409,
@@ -318,7 +318,7 @@ const coldDrinksAndJuices = [
     price: 125,
     category: "Cold Drinks & Juices",
     stock: 32,
-    image:"assets/product-images/colddrink.webp"
+    image:"../assets/product-images/colddrink.webp"
   },
   {
     id: 410,
@@ -326,7 +326,7 @@ const coldDrinksAndJuices = [
     price: 35,
     category: "Cold Drinks & Juices",
     stock: 55,
-    image:"assets/product-images/colddrink.webp"
+    image:"../assets/product-images/colddrink.webp"
   }
 ];
 
@@ -337,7 +337,7 @@ const bakeryAndBiscuits = [
     price: 60,
     category: "Bakery & Biscuits",
     stock: 80,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 502,
@@ -345,7 +345,7 @@ const bakeryAndBiscuits = [
     price: 45,
     category: "Bakery & Biscuits",
     stock: 70,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 503,
@@ -353,7 +353,7 @@ const bakeryAndBiscuits = [
     price: 42,
     category: "Bakery & Biscuits",
     stock: 50,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 504,
@@ -361,7 +361,7 @@ const bakeryAndBiscuits = [
     price: 48,
     category: "Bakery & Biscuits",
     stock: 45,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 505,
@@ -369,7 +369,7 @@ const bakeryAndBiscuits = [
     price: 120,
     category: "Bakery & Biscuits",
     stock: 35,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 506,
@@ -377,7 +377,7 @@ const bakeryAndBiscuits = [
     price: 75,
     category: "Bakery & Biscuits",
     stock: 25,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 507,
@@ -385,7 +385,7 @@ const bakeryAndBiscuits = [
     price: 65,
     category: "Bakery & Biscuits",
     stock: 30,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 508,
@@ -393,7 +393,7 @@ const bakeryAndBiscuits = [
     price: 55,
     category: "Bakery & Biscuits",
     stock: 60,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 509,
@@ -401,7 +401,7 @@ const bakeryAndBiscuits = [
     price: 90,
     category: "Bakery & Biscuits",
     stock: 20,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   },
   {
     id: 510,
@@ -409,7 +409,7 @@ const bakeryAndBiscuits = [
     price: 85,
     category: "Bakery & Biscuits",
     stock: 18,
-    image: "assets/product-images/bakery.jpg"
+    image: "../assets/product-images/bakery.jpg"
   }
 ];
 
@@ -420,7 +420,7 @@ const bookStore = [
     price: 499,
     category: "Book Store",
     stock: 25,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 602,
@@ -428,7 +428,7 @@ const bookStore = [
     price: 399,
     category: "Book Store",
     stock: 30,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 603,
@@ -436,7 +436,7 @@ const bookStore = [
     price: 450,
     category: "Book Store",
     stock: 20,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 604,
@@ -444,7 +444,7 @@ const bookStore = [
     price: 350,
     category: "Book Store",
     stock: 18,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 605,
@@ -452,7 +452,7 @@ const bookStore = [
     price: 420,
     category: "Book Store",
     stock: 22,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 606,
@@ -460,7 +460,7 @@ const bookStore = [
     price: 299,
     category: "Book Store",
     stock: 28,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 607,
@@ -468,7 +468,7 @@ const bookStore = [
     price: 550,
     category: "Book Store",
     stock: 15,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 608,
@@ -476,7 +476,7 @@ const bookStore = [
     price: 480,
     category: "Book Store",
     stock: 24,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 609,
@@ -484,7 +484,7 @@ const bookStore = [
     price: 320,
     category: "Book Store",
     stock: 35,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   },
   {
     id: 610,
@@ -492,7 +492,7 @@ const bookStore = [
     price: 399,
     category: "Book Store",
     stock: 26,
-    image: "assets/product-images/library.jpg"
+    image: "../assets/product-images/library.jpg"
   }
 ];
 
@@ -503,7 +503,7 @@ const cleaningTools = [
     price: 899,
     category: "Cleaning Tools",
     stock: 20,
-    image: "assets/product-images/cleaningtools.jpg"
+    image: "../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 702,
@@ -511,7 +511,7 @@ const cleaningTools = [
     price: 180,
     category: "Cleaning Tools",
     stock: 50,
-    image: "assets/product-images/cleaningtools.jpg"
+    image: "../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 703,
@@ -519,7 +519,7 @@ const cleaningTools = [
     price: 220,
     category: "Cleaning Tools",
     stock: 40,
-    image:"assets/product-images/cleaningtools.jpg"
+    image:"../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 704,
@@ -527,7 +527,7 @@ const cleaningTools = [
     price: 199,
     category: "Cleaning Tools",
     stock: 60,
-    image: "assets/product-images/cleaningtools.jpg"
+    image: "../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 705,
@@ -535,7 +535,7 @@ const cleaningTools = [
     price: 150,
     category: "Cleaning Tools",
     stock: 35,
-    image: "assets/product-images/cleaningtools.jpg"
+    image: "../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 706,
@@ -543,7 +543,7 @@ const cleaningTools = [
     price: 240,
     category: "Cleaning Tools",
     stock: 45,
-    image: "assets/product-images/cleaningtools.jpg"
+    image: "../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 707,
@@ -551,7 +551,7 @@ const cleaningTools = [
     price: 180,
     category: "Cleaning Tools",
     stock: 38,
-    image: "assets/product-images/cleaningtools.jpg"
+    image: "../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 708,
@@ -559,7 +559,7 @@ const cleaningTools = [
     price: 130,
     category: "Cleaning Tools",
     stock: 42,
-    image: "assets/product-images/cleaningtools.jpg"
+    image: "../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 709,
@@ -567,7 +567,7 @@ const cleaningTools = [
     price: 2499,
     category: "Cleaning Tools",
     stock: 12,
-    image: "assets/product-images/cleaningtools.jpg"
+    image: "../assets/product-images/cleaningtools.jpg"
   },
   {
     id: 710,
@@ -575,7 +575,7 @@ const cleaningTools = [
     price: 299,
     category: "Cleaning Tools",
     stock: 70,
-    image:"assets/product-images/cleaningtools.jpg"
+    image:"../assets/product-images/cleaningtools.jpg"
   }
 ];
 
@@ -586,7 +586,7 @@ const electronicGadgets = [
     price: 1999,
     category: "Electronic Gadgets",
     stock: 30,
-    image: "assets/product-images/electronics.jpg"
+    image: "../assets/product-images/electronics.jpg"
   },
   {
     id: 802,
@@ -594,7 +594,7 @@ const electronicGadgets = [
     price: 1299,
     category: "Electronic Gadgets",
     stock: 25,
-    image:"assets/product-images/electronics.jpg"
+    image:"../assets/product-images/electronics.jpg"
   },
   {
     id: 803,
@@ -602,7 +602,7 @@ const electronicGadgets = [
     price: 299,
     category: "Electronic Gadgets",
     stock: 60,
-    image: "assets/product-images/electronics.jpg"
+    image: "../assets/product-images/electronics.jpg"
   },
   {
     id: 804,
@@ -610,7 +610,7 @@ const electronicGadgets = [
     price: 599,
     category: "Electronic Gadgets",
     stock: 45,
-    image: "assets/product-images/electronics.jpg"
+    image: "../assets/product-images/electronics.jpg"
   },
   {
     id: 805,
@@ -618,7 +618,7 @@ const electronicGadgets = [
     price: 2499,
     category: "Electronic Gadgets",
     stock: 20,
-    image: "assets/product-images/electronics.jpg"
+    image: "../assets/product-images/electronics.jpg"
   },
   {
     id: 806,
@@ -626,7 +626,7 @@ const electronicGadgets = [
     price: 799,
     category: "Electronic Gadgets",
     stock: 35,
-    image: "assets/product-images/electronics.jpg"
+    image: "../assets/product-images/electronics.jpg"
   },
   {
     id: 807,
@@ -634,7 +634,7 @@ const electronicGadgets = [
     price: 999,
     category: "Electronic Gadgets",
     stock: 18,
-    image:"assets/product-images/electronics.jpg"
+    image:"../assets/product-images/electronics.jpg"
   },
   {
     id: 808,
@@ -642,7 +642,7 @@ const electronicGadgets = [
     price: 3499,
     category: "Electronic Gadgets",
     stock: 22,
-    image:"assets/product-images/electronics.jpg"
+    image:"../assets/product-images/electronics.jpg"
   },
   {
     id: 809,
@@ -650,7 +650,7 @@ const electronicGadgets = [
     price: 699,
     category: "Electronic Gadgets",
     stock: 40,
-    image: "assets/product-images/electronics.jpg"
+    image: "../assets/product-images/electronics.jpg"
   },
   {
     id: 810,
@@ -658,7 +658,7 @@ const electronicGadgets = [
     price: 1899,
     category: "Electronic Gadgets",
     stock: 15,
-    image: "assets/product-images/electronics.jpg"
+    image: "../assets/product-images/electronics.jpg"
   }
 ];
 
@@ -669,7 +669,7 @@ const petStore = [
     price: 899,
     category: "Pet Store",
     stock: 25,
-    image: "assets/product-images/petstore.jpg"
+    image: "../assets/product-images/petstore.jpg"
   },
   {
     id: 902,
@@ -677,7 +677,7 @@ const petStore = [
     price: 749,
     category: "Pet Store",
     stock: 30,
-    image: "assets/product-images/petstore.jpg"
+    image: "../assets/product-images/petstore.jpg"
   },
   {
     id: 903,
@@ -685,7 +685,7 @@ const petStore = [
     price: 299,
     category: "Pet Store",
     stock: 40,
-    image: "assets/product-images/petstore.jpg"
+    image: "../assets/product-images/petstore.jpg"
   },
   {
     id: 904,
@@ -693,7 +693,7 @@ const petStore = [
     price: 199,
     category: "Pet Store",
     stock: 50,
-    image: "assets/product-images/petstore.jpg"
+    image: "../assets/product-images/petstore.jpg"
   },
   {
     id: 905,
@@ -701,7 +701,7 @@ const petStore = [
     price: 349,
     category: "Pet Store",
     stock: 35,
-    image: "assets/product-images/petstore.jpg"
+    image: "../assets/product-images/petstore.jpg"
   },
   {
     id: 906,
@@ -709,7 +709,7 @@ const petStore = [
     price: 499,
     category: "Pet Store",
     stock: 28,
-    image: "assets/product-images/petstore.jpg"
+    image: "../assets/product-images/petstore.jpg"
   },
   {
     id: 907,
@@ -717,7 +717,7 @@ const petStore = [
     price: 259,
     category: "Pet Store",
     stock: 45,
-    image: "assets/product-images/petstore.jpg"
+    image: "../assets/product-images/petstore.jpg"
   },
   {
     id: 908,
@@ -725,7 +725,7 @@ const petStore = [
     price: 220,
     category: "Pet Store",
     stock: 38,
-    image:"assets/product-images/petstore.jpg"
+    image:"../assets/product-images/petstore.jpg"
   },
   {
     id: 909,
@@ -733,7 +733,7 @@ const petStore = [
     price: 150,
     category: "Pet Store",
     stock: 60,
-    image:"assets/product-images/petstore.jpg"
+    image:"../assets/product-images/petstore.jpg"
   },
   {
     id: 910,
@@ -741,7 +741,7 @@ const petStore = [
     price: 1299,
     category: "Pet Store",
     stock: 12,
-    image: "assets/product-images/petstore.jpg"
+    image: "../assets/product-images/petstore.jpg"
   }
 ];
 
@@ -752,7 +752,7 @@ const toyStore = [
     price: 1499,
     category: "Toy Store",
     stock: 20,
-    image:"assets/product-images/toystore.jpg"
+    image:"../assets/product-images/toystore.jpg"
   },
   {
     id: 1002,
@@ -760,7 +760,7 @@ const toyStore = [
     price: 899,
     category: "Toy Store",
     stock: 30,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   },
   {
     id: 1003,
@@ -768,7 +768,7 @@ const toyStore = [
     price: 599,
     category: "Toy Store",
     stock: 40,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   },
   {
     id: 1004,
@@ -776,7 +776,7 @@ const toyStore = [
     price: 349,
     category: "Toy Store",
     stock: 50,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   },
   {
     id: 1005,
@@ -784,7 +784,7 @@ const toyStore = [
     price: 1299,
     category: "Toy Store",
     stock: 18,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   },
   {
     id: 1006,
@@ -792,7 +792,7 @@ const toyStore = [
     price: 1799,
     category: "Toy Store",
     stock: 15,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   },
   {
     id: 1007,
@@ -800,7 +800,7 @@ const toyStore = [
     price: 499,
     category: "Toy Store",
     stock: 35,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   },
   {
     id: 1008,
@@ -808,7 +808,7 @@ const toyStore = [
     price: 999,
     category: "Toy Store",
     stock: 25,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   },
   {
     id: 1009,
@@ -816,7 +816,7 @@ const toyStore = [
     price: 699,
     category: "Toy Store",
     stock: 28,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   },
   {
     id: 1010,
@@ -824,7 +824,7 @@ const toyStore = [
     price: 899,
     category: "Toy Store",
     stock: 22,
-    image: "assets/product-images/toystore.jpg"
+    image: "../assets/product-images/toystore.jpg"
   }
 ];
 
@@ -835,7 +835,7 @@ const personalCare = [
     price: 180,
     category: "Personal Care",
     stock: 60,
-    image:"assets/product-images/personalcare.jpg"
+    image:"../assets/product-images/personalcare.jpg"
   },
   {
     id: 1102,
@@ -843,7 +843,7 @@ const personalCare = [
     price: 420,
     category: "Personal Care",
     stock: 35,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   },
   {
     id: 1103,
@@ -851,7 +851,7 @@ const personalCare = [
     price: 260,
     category: "Personal Care",
     stock: 30,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   },
   {
     id: 1104,
@@ -859,7 +859,7 @@ const personalCare = [
     price: 120,
     category: "Personal Care",
     stock: 50,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   },
   {
     id: 1105,
@@ -867,7 +867,7 @@ const personalCare = [
     price: 150,
     category: "Personal Care",
     stock: 45,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   },
   {
     id: 1106,
@@ -875,7 +875,7 @@ const personalCare = [
     price: 320,
     category: "Personal Care",
     stock: 28,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   },
   {
     id: 1107,
@@ -883,7 +883,7 @@ const personalCare = [
     price: 210,
     category: "Personal Care",
     stock: 40,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   },
   {
     id: 1108,
@@ -891,7 +891,7 @@ const personalCare = [
     price: 260,
     category: "Personal Care",
     stock: 34,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   },
   {
     id: 1109,
@@ -899,7 +899,7 @@ const personalCare = [
     price: 180,
     category: "Personal Care",
     stock: 55,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   },
   {
     id: 1110,
@@ -907,7 +907,7 @@ const personalCare = [
     price: 199,
     category: "Personal Care",
     stock: 38,
-    image: "assets/product-images/personalcare.jpg"
+    image: "../assets/product-images/personalcare.jpg"
   }
 ];
 
@@ -918,7 +918,7 @@ const homeFurnishing = [
     price: 1299,
     category: "Home Furnishing & Decor",
     stock: 20,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1202,
@@ -926,7 +926,7 @@ const homeFurnishing = [
     price: 799,
     category: "Home Furnishing & Decor",
     stock: 30,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1203,
@@ -934,7 +934,7 @@ const homeFurnishing = [
     price: 1499,
     category: "Home Furnishing & Decor",
     stock: 18,
-    image:"assets/product-images/homefurnishing.jpg"
+    image:"../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1204,
@@ -942,7 +942,7 @@ const homeFurnishing = [
     price: 999,
     category: "Home Furnishing & Decor",
     stock: 22,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1205,
@@ -950,7 +950,7 @@ const homeFurnishing = [
     price: 1299,
     category: "Home Furnishing & Decor",
     stock: 15,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1206,
@@ -958,7 +958,7 @@ const homeFurnishing = [
     price: 499,
     category: "Home Furnishing & Decor",
     stock: 40,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1207,
@@ -966,7 +966,7 @@ const homeFurnishing = [
     price: 699,
     category: "Home Furnishing & Decor",
     stock: 35,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1208,
@@ -974,7 +974,7 @@ const homeFurnishing = [
     price: 899,
     category: "Home Furnishing & Decor",
     stock: 25,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1209,
@@ -982,7 +982,7 @@ const homeFurnishing = [
     price: 599,
     category: "Home Furnishing & Decor",
     stock: 45,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   },
   {
     id: 1210,
@@ -990,7 +990,7 @@ const homeFurnishing = [
     price: 1999,
     category: "Home Furnishing & Decor",
     stock: 12,
-    image: "assets/product-images/homefurnishing.jpg"
+    image: "../assets/product-images/homefurnishing.jpg"
   }
 ];
 
@@ -1001,7 +1001,7 @@ const kitchenAndDining = [
     price: 899,
     category: "Kitchen & Dining",
     stock: 25,
-    image: "assets/product-images/kitchen.jpg"
+    image: "../assets/product-images/kitchen.jpg"
   },
   {
     id: 1302,
@@ -1009,7 +1009,7 @@ const kitchenAndDining = [
     price: 2499,
     category: "Kitchen & Dining",
     stock: 15,
-    image: "assets/product-images/kitchen.jpg"
+    image: "../assets/product-images/kitchen.jpg"
   },
   {
     id: 1303,
@@ -1017,7 +1017,7 @@ const kitchenAndDining = [
     price: 1199,
     category: "Kitchen & Dining",
     stock: 20,
-    image:"assets/product-images/kitchen.jpg"
+    image:"../assets/product-images/kitchen.jpg"
   },
   {
     id: 1304,
@@ -1025,7 +1025,7 @@ const kitchenAndDining = [
     price: 699,
     category: "Kitchen & Dining",
     stock: 35,
-    image: "assets/product-images/kitchen.jpg"
+    image: "../assets/product-images/kitchen.jpg"
   },
   {
     id: 1305,
@@ -1033,7 +1033,7 @@ const kitchenAndDining = [
     price: 999,
     category: "Kitchen & Dining",
     stock: 18,
-    image:"assets/product-images/kitchen.jpg"
+    image:"../assets/product-images/kitchen.jpg"
   },
   {
     id: 1306,
@@ -1041,7 +1041,7 @@ const kitchenAndDining = [
     price: 1899,
     category: "Kitchen & Dining",
     stock: 22,
-    image: "assets/product-images/kitchen.jpg"
+    image: "../assets/product-images/kitchen.jpg"
   },
   {
     id: 1307,
@@ -1049,7 +1049,7 @@ const kitchenAndDining = [
     price: 499,
     category: "Kitchen & Dining",
     stock: 40,
-    image: "assets/product-images/kitchen.jpg"
+    image: "../assets/product-images/kitchen.jpg"
   },
   {
     id: 1308,
@@ -1057,7 +1057,7 @@ const kitchenAndDining = [
     price: 1499,
     category: "Kitchen & Dining",
     stock: 16,
-    image: "assets/product-images/kitchen.jpg"
+    image: "../assets/product-images/kitchen.jpg"
   },
   {
     id: 1309,
@@ -1065,7 +1065,7 @@ const kitchenAndDining = [
     price: 2999,
     category: "Kitchen & Dining",
     stock: 10,
-    image: "assets/product-images/kitchen.jpg"
+    image: "../assets/product-images/kitchen.jpg"
   },
   {
     id: 1310,
@@ -1073,7 +1073,7 @@ const kitchenAndDining = [
     price: 599,
     category: "Kitchen & Dining",
     stock: 45,
-    image: "assets/product-images/kitchen.jpg"
+    image: "../assets/product-images/kitchen.jpg"
   }
 ];
 
@@ -1084,7 +1084,7 @@ const footwear = [
     price: 2499,
     category: "Footwear",
     stock: 20,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1402,
@@ -1092,7 +1092,7 @@ const footwear = [
     price: 2299,
     category: "Footwear",
     stock: 18,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1403,
@@ -1100,7 +1100,7 @@ const footwear = [
     price: 2799,
     category: "Footwear",
     stock: 15,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1404,
@@ -1108,7 +1108,7 @@ const footwear = [
     price: 1599,
     category: "Footwear",
     stock: 25,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1405,
@@ -1116,7 +1116,7 @@ const footwear = [
     price: 499,
     category: "Footwear",
     stock: 40,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1406,
@@ -1124,7 +1124,7 @@ const footwear = [
     price: 1899,
     category: "Footwear",
     stock: 22,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1407,
@@ -1132,7 +1132,7 @@ const footwear = [
     price: 1999,
     category: "Footwear",
     stock: 17,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1408,
@@ -1140,7 +1140,7 @@ const footwear = [
     price: 2699,
     category: "Footwear",
     stock: 14,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1409,
@@ -1148,7 +1148,7 @@ const footwear = [
     price: 1799,
     category: "Footwear",
     stock: 28,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   },
   {
     id: 1410,
@@ -1156,7 +1156,7 @@ const footwear = [
     price: 699,
     category: "Footwear",
     stock: 35,
-    image: "assets/product-images/footwear.avif"
+    image: "../assets/product-images/footwear.avif"
   }
 ];
 
@@ -1167,7 +1167,7 @@ const clothes = [
     price: 699,
     category: "Clothes",
     stock: 40,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   },
   {
     id: 1502,
@@ -1175,7 +1175,7 @@ const clothes = [
     price: 899,
     category: "Clothes",
     stock: 35,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   },
   {
     id: 1503,
@@ -1183,7 +1183,7 @@ const clothes = [
     price: 1799,
     category: "Clothes",
     stock: 25,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   },
   {
     id: 1504,
@@ -1191,7 +1191,7 @@ const clothes = [
     price: 1499,
     category: "Clothes",
     stock: 30,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   },
   {
     id: 1505,
@@ -1199,7 +1199,7 @@ const clothes = [
     price: 1299,
     category: "Clothes",
     stock: 22,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   },
   {
     id: 1506,
@@ -1207,7 +1207,7 @@ const clothes = [
     price: 1899,
     category: "Clothes",
     stock: 18,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   },
   {
     id: 1507,
@@ -1215,7 +1215,7 @@ const clothes = [
     price: 2199,
     category: "Clothes",
     stock: 15,
-    image:"assets/product-images/clothes.jpg"
+    image:"../assets/product-images/clothes.jpg"
   },
   {
     id: 1508,
@@ -1223,7 +1223,7 @@ const clothes = [
     price: 2499,
     category: "Clothes",
     stock: 20,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   },
   {
     id: 1509,
@@ -1231,7 +1231,7 @@ const clothes = [
     price: 799,
     category: "Clothes",
     stock: 28,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   },
   {
     id: 1510,
@@ -1239,7 +1239,7 @@ const clothes = [
     price: 699,
     category: "Clothes",
     stock: 32,
-    image: "assets/product-images/clothes.jpg"
+    image: "../assets/product-images/clothes.jpg"
   }
 ];
 
