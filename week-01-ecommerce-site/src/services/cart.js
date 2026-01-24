@@ -58,3 +58,5 @@ function decreaseQuantity(productId) {
   notifyCartChange();
   applySearchAndFilter();
 }
+
+
