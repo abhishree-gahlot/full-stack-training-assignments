@@ -8,8 +8,12 @@ export default class CartService {
     localStorage.setItem(this.storageKey, JSON.stringify(this.cart));
   }
 
-  notifyCartChange() {
-    document.dispatchEvent(new Event("cartUpdated"));
+  notifyCartChange(productId) {
+    document.dispatchEvent(
+      new CustomEvent("cartUpdated", {
+        detail: { productId }
+      })
+    );
   }
 
   getCartQuantity(productId) {
@@ -18,6 +22,8 @@ export default class CartService {
   }
 
   addToCart(product) {
+    if (!product) return;
+
     const existingItem = this.cart.find(item => item.id === product.id);
 
     if (existingItem) {
@@ -27,18 +33,17 @@ export default class CartService {
     }
 
     this.saveCart();
-    this.notifyCartChange();
+    this.notifyCartChange(product.id);
   }
 
   increaseQuantity(productId) {
-    this.cart = this.cart.map(item =>
-      item.id === productId
-        ? { ...item, quantity: item.quantity + 1 }
-        : item
-    );
+    const item = this.cart.find(item => item.id === productId);
+    if (!item) return;
+
+    item.quantity++;
 
     this.saveCart();
-    this.notifyCartChange();
+    this.notifyCartChange(productId);
   }
 
   decreaseQuantity(productId) {
@@ -48,15 +53,11 @@ export default class CartService {
     if (item.quantity === 1) {
       this.cart = this.cart.filter(item => item.id !== productId);
     } else {
-      this.cart = this.cart.map(item =>
-        item.id === productId
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      );
+      item.quantity--;
     }
 
     this.saveCart();
-    this.notifyCartChange();
+    this.notifyCartChange(productId);
   }
 
   getItems() {
@@ -66,6 +67,6 @@ export default class CartService {
   clearCart() {
     this.cart = [];
     this.saveCart();
-    this.notifyCartChange();
+    document.dispatchEvent(new Event("cartUpdated"));
   }
 }

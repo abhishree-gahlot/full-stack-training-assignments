@@ -59,6 +59,3 @@ function setupLoadMoreButton() {
   }
 }
 
-document.addEventListener("cartUpdated", () => {
-  displayProducts(allProducts);
-});

@@ -48,7 +48,7 @@ export default class ProductService {
     existing.image = updated.image;
     existing.stock = updated.stock;
 
-    this._save();
+    this._saveToLocalStorage();
     return existing;
   }
 

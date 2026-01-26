@@ -1,122 +1,124 @@
+import CartService from "../services/CartService.js";
+
+const cartService = new CartService();
+
 const cartContainer = document.getElementById("cart-container");
 const cartTotal = document.getElementById("cart-total");
 const buyNowButton = document.getElementById("buy-now");
 
 function renderCart() {
+  const cartItems = cartService.getItems();
   cartContainer.innerHTML = "";
 
-  if (cart.length === 0) {
+  if (cartItems.length === 0) {
     cartContainer.innerHTML = "Your cart is empty &#128722;";
     cartTotal.textContent = "";
     return;
   }
 
-  let numberOfItems = 0;
-  cart.forEach(item => {
+  let index = 1;
+  let total = 0;
+
+  cartItems.forEach(item => {
+    total += item.price * item.quantity;
+
     const row = document.createElement("div");
     row.className = "cart-row";
 
     const info = document.createElement("div");
     info.innerHTML = `
-      <strong>${++numberOfItems}. ${item.name}</strong><br>
+      <strong>${index++}. ${item.name}</strong><br>
       <span>Price: ₹${item.price}</span><br>
       <span>Quantity: ${item.quantity}</span><br>
-      <span>Subtotal : ₹${item.price * item.quantity}</span>
+      <span>Subtotal: ₹${item.price * item.quantity}</span>
     `;
 
-    const quantityWrapper = document.createElement("div");
-    quantityWrapper.className = "quantity-wrapper";
+    const controls = document.createElement("div");
+    controls.className = "quantity-wrapper";
 
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
+    const minus = document.createElement("button");
+    minus.textContent = "−";
+    minus.addEventListener("click", () =>
+      cartService.decreaseQuantity(item.id)
+    );
 
-    const quantityText = document.createElement("span");
-    quantityText.textContent = item.quantity;
+    const qty = document.createElement("span");
+    qty.textContent = item.quantity;
 
-    const addButton = document.createElement("button");
-    addButton.textContent = "+";
+    const plus = document.createElement("button");
+    plus.textContent = "+";
+    plus.addEventListener("click", () =>
+      cartService.increaseQuantity(item.id)
+    );
 
-    minusButton.addEventListener("click" , () => {
-      decreaseQuantity(item.id);
-      renderCart();
-    });
+    controls.append(minus, qty, plus);
 
-    addButton.addEventListener("click" , () => {
-      increaseQuantity(item.id);
-      renderCart();
-    });
+    const remove = document.createElement("button");
+    remove.className = "remove-button";
+    remove.textContent = "Remove";
+    remove.addEventListener("click", () =>
+      cartService.decreaseQuantity(item.id)
+    );
 
-    quantityWrapper.appendChild(minusButton);
-    quantityWrapper.appendChild(quantityText);
-    quantityWrapper.appendChild(addButton);
-
-    const removeButton = document.createElement("button");
-    removeButton.className = "remove-button";
-    removeButton.textContent = "Remove";
-
-    removeButton.addEventListener("click" , () =>{
-      cart = cart.filter(product => product.id !== item.id);
-      saveCart();
-      renderCart();
-    });
-
-    row.appendChild(info);
-    row.appendChild(quantityWrapper);
-    row.appendChild(removeButton);
+    row.append(info, controls, remove);
     cartContainer.appendChild(row);
   });
-
-  
-  const total = cart.reduce((sum, item) => 
-  {
-    return sum + item.price * item.quantity;
-  }, 0);
 
   cartTotal.textContent = `Total: ₹${total}`;
 }
 
-renderCart();
+buyNowButton.addEventListener("click", () => {
+  try {
+    const items = cartService.getItems();
 
-function buyNowMessage() 
-{
+    if (items.length === 0) {
+      throw new Error("Cart is empty. Add items before checkout.");
+    }
+
+    buyNowButton.disabled = true;
+    buyNowButton.textContent = "Processing...";
+
+    setTimeout(() => {
+      showThankYouPopup();
+      cartService.clearCart();
+
+      buyNowButton.disabled = false;
+      buyNowButton.textContent = "Buy Now";
+    }, 1500);
+
+  } catch (error) {
+    alert(error.message);
+  }
+});
+
+
+function showThankYouPopup() {
   if (document.getElementById("popup-overlay")) return;
 
   const overlay = document.createElement("div");
   overlay.id = "popup-overlay";
-  overlay.classList.add("hidden");
 
   const popup = document.createElement("div");
   popup.className = "popup";
 
-  const heading = document.createElement("h2");
-  heading.innerHTML = "Thank You! &#127881;";
+  popup.innerHTML = `
+    <h2>Thank You &#127881;</h2>
+    <p>Thanks for shopping with us.</p>
+    <button id="close-popup">OK</button>
+  `;
 
-  const message = document.createElement("p");
-  message.textContent = "Thanks for shopping with us.";
-
-  const closeButton = document.createElement("button");
-  closeButton.id = "close-popup";
-  closeButton.textContent = "OK";
-
-  closeButton.addEventListener("click", () => {
-    overlay.classList.add("hidden");
-    window.location.href = "index.html";
-  });
-
-  popup.append(heading, message, closeButton);
   overlay.appendChild(popup);
-
   document.body.appendChild(overlay);
 
-  overlay.classList.remove("hidden");
+  document.getElementById("close-popup").addEventListener("click", () => {
+    overlay.remove();
+    window.location.href = "index.html";
+  });
 }
 
-buyNowButton.addEventListener("click", () => {
-  buyNowMessage();
-
-  cart = [];
-  saveCart();
-  renderCart();
-});
+/* ---------------- EVENTS ---------------- */
 
 document.addEventListener("cartUpdated", renderCart);
+
+/* Initial render */
+renderCart();
