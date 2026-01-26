@@ -1,0 +1,87 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f8fafc;
+  margin: 0;
+}
+
+.navbar .nav-link {
+  color: #2b79cc;
+  font-weight: 600;
+}
+
+.navbar .nav-link.active {
+  color: #1f5fa8;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+#add-product-form .form-control {
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  height: 42px;
+}
+
+#add-product-form .btn {
+  background: #2b79cc;
+  border: none;
+  font-weight: 600;
+}
+
+#add-product-form .btn:hover {
+  background: #1f5fa8;
+}
+
+#product-table th {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+#product-table td button {
+  margin-right: 4px;
+}
+
+#product-table td button.edit-btn {
+  background: #1f5fa8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+#product-table td button.delete-btn {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+#product-table td button:hover {
+  opacity: 0.8;
+}
+
+
+#brand-img
+{
+    max-height: 48px;
+    width: auto;
+    margin-left: 20px;
+}
+
+#form-message {
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+#form-message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+#form-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}

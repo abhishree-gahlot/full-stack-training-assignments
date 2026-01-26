@@ -1,50 +1,54 @@
+import CartService from "../services/CartService.js";
+
+const cartService = new CartService();
 const productContainer = document.getElementById("product-container");
 const searchInput = document.getElementById("search-input");
 const categoryFilter = document.getElementById("category-filter");
 
-function displayProducts(products)
-{
-    productContainer.innerHTML = "";
+let categorySections = {}; 
+let currentProducts = [];  
 
-    if (products.length === 0) 
-    {
-      productContainer.textContent = "No products found !";
-      return;
-    }
+function displayProducts(products, category = null) {
+  if (!products || products.length === 0) {
+    if (!category) productContainer.textContent = "No products found!";
+    return;
+  }
 
-    const groupedProducts = groupByCategory(products);
+  const groupedProducts = category ? { [category]: products } : groupByCategory(products);
 
-    for( const category in groupedProducts)
-    {
-      renderCategorySection( category , groupedProducts[category]);
-    }
+  for (const cat in groupedProducts) {
+    renderCategorySection(cat, groupedProducts[cat]);
+  }
 }
 
-function renderCategorySection( category , products)
-{
-    const section = document.createElement("section");
+function renderCategorySection(category, products) {
+  let section = categorySections[category];
+
+  if (!section) {
+    section = document.createElement("section");
     section.className = "category-section";
 
     const heading = document.createElement("h2");
     heading.textContent = category;
-
     heading.style.margin = "20px 0";
     heading.style.color = "#2b79cc";
 
     const productList = document.createElement("div");
     productList.className = "product-list";
 
-    products.forEach(product => {
-        const card = createProductCard(product);
-        productList.appendChild(card);
-    });
-
     section.appendChild(heading);
     section.appendChild(productList);
     productContainer.appendChild(section);
 
-}
+    categorySections[category] = section;
+  }
 
+  const productList = section.querySelector(".product-list");
+  products.forEach(product => {
+    const card = createProductCard(product);
+    productList.appendChild(card);
+  });
+}
 function createProductCard(product) {
   const { id, name, price, category, image } = product;
 
@@ -71,43 +75,28 @@ function createProductCard(product) {
   const action = document.createElement("div");
   action.className = "product-action";
 
-  const quantity = getCartQuantity(id);
+  const quantity = cartService.getCartQuantity(id);
 
-  if (quantity === 0) 
-  {
+  if (quantity === 0) {
     const addButton = document.createElement("button");
     addButton.textContent = "Add to Cart";
     addButton.className = "add-to-cart-button";
-
-    addButton.addEventListener("click", () => {
-      addToCart(product);
-    });
-
+    addButton.addEventListener("click", () => cartService.addToCart(product));
     action.appendChild(addButton);
-  } 
-  else 
-  {
+  } else {
     const quantityWrapper = document.createElement("div");
     quantityWrapper.className = "qty-wrapper";
 
     const minusButton = document.createElement("button");
     minusButton.textContent = "−";
+    minusButton.addEventListener("click", () => cartService.decreaseQuantity(id));
 
     const quantityText = document.createElement("span");
     quantityText.textContent = quantity;
 
     const addButton = document.createElement("button");
     addButton.textContent = "+";
-
-    minusButton.addEventListener("click", () => 
-    {
-      decreaseQuantity(id);
-    });
-
-    addButton.addEventListener("click", () => 
-    {
-      increaseQuantity(id);
-    });
+    addButton.addEventListener("click", () => cartService.increaseQuantity(id));
 
     quantityWrapper.appendChild(minusButton);
     quantityWrapper.appendChild(quantityText);
@@ -127,13 +116,11 @@ function createProductCard(product) {
   return card;
 }
 
-
 function loadCategories(products) {
-  const categories = ["all",
-    ...products
-      .map(item => item.category)
-      .filter((category, index, arr) => arr.indexOf(category) === index)
-  ];
+  if (!categoryFilter) return;
+
+  categoryFilter.innerHTML = "";
+  const categories = ["all", ...new Set(products.map(p => p.category))];
 
   categories.forEach(category => {
     const option = document.createElement("option");
@@ -143,31 +130,40 @@ function loadCategories(products) {
   });
 }
 
-function applySearchAndFilter() {
+function applySearchAndFilter(allProducts) {
+  if (!allProducts || allProducts.length === 0) return;
+
   const searchText = searchInput.value.toLowerCase();
   const selectedCategory = categoryFilter.value;
 
-  const filteredProducts = products.filter(product => 
-  {
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchText);
-
-    const matchesCategory =
-      selectedCategory === "all" ||
-      product.category === selectedCategory;
-
+  const filteredProducts = allProducts.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchText);
+    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  categorySections = {};
+  productContainer.innerHTML = "";
+  currentProducts = filteredProducts.slice();
 
   displayProducts(filteredProducts);
 }
 
-searchInput.addEventListener("input", applySearchAndFilter);
-
-if (categoryFilter) 
-{
-  categoryFilter.addEventListener("change", applySearchAndFilter);
+function setupSearchFilter(allProducts) {
+  if (searchInput) {
+    searchInput.addEventListener("input", () => applySearchAndFilter(allProducts));
+  }
+  if (categoryFilter) {
+    categoryFilter.addEventListener("change", () => applySearchAndFilter(allProducts));
+  }
 }
 
-loadCategories(products);
-displayProducts(products);
+function groupByCategory(products) {
+  return products.reduce((acc, product) => {
+    if (!acc[product.category]) acc[product.category] = [];
+    acc[product.category].push(product);
+    return acc;
+  }, {});
+}
+
+export { displayProducts, loadCategories, setupSearchFilter, currentProducts };
