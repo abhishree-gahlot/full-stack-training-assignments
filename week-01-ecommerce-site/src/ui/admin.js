@@ -50,7 +50,6 @@ form.addEventListener("submit", async (e) => {
   const editingId = form.dataset.editingId;
 
   try {
-    // Validations
     if (!name || !category) {
       showMessage("error", "Name and category are required!");
       return;
