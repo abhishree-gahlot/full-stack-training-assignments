@@ -9,24 +9,24 @@ export default class ProductService {
   async getProducts() {
     const stored = localStorage.getItem(this.storageKey);
     if (stored) {
-      this.products = JSON.parse(stored).map(p => new Product(p));
+      this.products = JSON.parse(stored).map(productItem => new Product(productItem));
       return this.products;
     }
 
     const response = await fetch("./data/products.json");
     if (!response.ok) throw new Error("Failed to load products.json");
     const rawProducts = await response.json();
-    this.products = rawProducts.map(p => new Product(p));
+    this.products = rawProducts.map(productItem => new Product(productItem));
     this._saveToLocalStorage();
     return this.products;
   }
 
   getProductById(id) {
-    return this.products.find(p => p.id === id);
+    return this.products.find(productItem => productItem.id === id);
   }
 
   getCategories() {
-    return [...new Set(this.products.map(p => p.category))];
+    return [...new Set(this.products.map(productItem => productItem.category))];
   }
 
   addProduct(product) {
@@ -37,7 +37,7 @@ export default class ProductService {
   }
 
    updateProduct(updated) {
-    const index = this.products.findIndex(p => p.id === updated.id);
+    const index = this.products.findIndex(productItem => productItem.id === updated.id);
     if (index === -1) return null;
 
     const existing = this.products[index];
@@ -54,7 +54,7 @@ export default class ProductService {
 
 
     deleteProduct(id) {
-    const index = this.products.findIndex(p => p.id === id);
+    const index = this.products.findIndex(productItem => productItem.id === id);
     if (index !== -1) {
         const deleted = this.products.splice(index, 1)[0];
         this._saveToLocalStorage(); 
@@ -74,7 +74,7 @@ export default class ProductService {
       const pageBatch = [];
 
       for (const category of categories) {
-        const productsInCategory = this.products.filter(p => p.category === category);
+        const productsInCategory = this.products.filter(productItem => productItem.category === category);
         const start = categoryIndexes[category];
         const end = start + pageSize;
 

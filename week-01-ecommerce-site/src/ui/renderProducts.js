@@ -124,8 +124,8 @@ function renderActionButtons(action, product) {
   }
 }
 
-document.addEventListener("cartUpdated", (e) => {
-  const { productId } = e.detail || {};
+document.addEventListener("cartUpdated", (event) => {
+  const { productId } = event.detail || {};
   if (!productId) return;
 
   updateProductCard(productId);
@@ -139,7 +139,7 @@ function updateProductCard(productId) {
 
   const action = card.querySelector(".product-action");
   const product =
-    currentProducts.find(p => p.id === productId) ||
+    currentProducts.find(productItem  => productItem .id === productId) ||
     { id: productId };
 
   renderActionButtons(action, product);
@@ -149,7 +149,7 @@ function loadCategories(products) {
   if (!categoryFilter) return;
 
   categoryFilter.innerHTML = "";
-  const categories = ["all", ...new Set(products.map(p => p.category))];
+  const categories = ["all", ...new Set(products.map(productItem => productItem .category))];
 
   categories.forEach(category => {
     const option = document.createElement("option");
@@ -188,10 +188,10 @@ function setupSearchFilter(allProducts) {
 }
 
 function groupByCategory(products) {
-  return products.reduce((acc, product) => {
-    acc[product.category] ??= [];
-    acc[product.category].push(product);
-    return acc;
+  return products.reduce((accumulator, product) => {
+    accumulator[product.category] ??= [];
+    accumulator[product.category].push(product);
+    return accumulator;
   }, {});
 }
 

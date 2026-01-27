@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   populateCategoryDropdown();
 });
 
-document.getElementById("product-category").addEventListener("change", (e) => {
-  const category = e.target.value;
+document.getElementById("product-category").addEventListener("change", (event) => {
+  const category = event.target.value;
   const productImage = document.getElementById("product-image");
 
   if (!productImage.value) {
@@ -38,8 +38,8 @@ document.getElementById("product-category").addEventListener("change", (e) => {
   }
 });
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
   const name = document.getElementById("product-name").value.trim();
   const price = parseFloat(document.getElementById("product-price").value);
@@ -74,9 +74,9 @@ form.addEventListener("submit", async (e) => {
 
     form.reset();
     await loadProducts();
-  } catch (err) {
+  } catch (error) {
     showMessage("error", "Something went wrong!");
-    console.error(err);
+    console.error(error);
   }
 });
 
@@ -88,28 +88,28 @@ async function loadProducts() {
 function renderTable() {
   tableBody.innerHTML = "";
 
-  allProducts.forEach((p, i) => {
+  allProducts.forEach((productItem, item) => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td>${i + 1}</td>
+      <td>${item + 1}</td>
       <td>
-        <img src="${p.image}" alt="${p.name}" width="50" class="me-2 rounded">
-        ${p.name}
+        <img src="${productItem.image}" alt="${productItem.name}" width="50" class="me-2 rounded">
+        ${productItem.name}
       </td>
-      <td>₹${p.price.toFixed(2)}</td>
-      <td>${p.category}</td>
-      <td>${p.stock}</td>
+      <td>₹${productItem.price.toFixed(2)}</td>
+      <td>${productItem.category}</td>
+      <td>${productItem.stock}</td>
       <td>
-        <button class="btn btn-sm btn-warning edit-btn" data-id="${p.id}">Edit</button>
-        <button class="btn btn-sm btn-danger delete-btn" data-id="${p.id}">Delete</button>
+        <button class="btn btn-sm btn-warning edit-btn" data-id="${productItem.id}">Edit</button>
+        <button class="btn btn-sm btn-danger delete-btn" data-id="${productItem.id}">Delete</button>
       </td>
     `;
     tableBody.appendChild(row);
   });
 
-    tableBody.querySelectorAll(".delete-btn").forEach(btn => {
-    btn.addEventListener("click", async (e) => {
-        const id = Number(e.target.dataset.id); 
+    tableBody.querySelectorAll(".delete-btn").forEach(button => {
+    button.addEventListener("click", async (event) => {
+        const id = Number(event.target.dataset.id); 
         if (confirm("Are you sure you want to delete this product?")) {
         const deleted = productService.deleteProduct(id);
         if (deleted) {
@@ -123,10 +123,10 @@ function renderTable() {
     });
 
 
-  tableBody.querySelectorAll(".edit-btn").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      const id = parseInt(e.target.dataset.id);
-      const product = allProducts.find(p => p.id === id);
+  tableBody.querySelectorAll(".edit-btn").forEach(button => {
+    button.addEventListener("click", (event) => {
+      const id = parseInt(event.target.dataset.id);
+      const product = allProducts.find(productItem => productItem.id === id);
 
       document.getElementById("product-name").value = product.name;
       document.getElementById("product-price").value = product.price;
@@ -140,11 +140,11 @@ function renderTable() {
 }
 
 function showMessage(type, text) {
-  const msgDiv = document.getElementById("form-message");
-  msgDiv.textContent = text;
-  msgDiv.className = ""; 
-  msgDiv.classList.add(type);
-  setTimeout(() => { msgDiv.textContent = ""; msgDiv.className = ""; }, 3000);
+  const messsageDiv = document.getElementById("form-message");
+  messsageDiv.textContent = text;
+  messsageDiv.className = ""; 
+  messsageDiv.classList.add(type);
+  setTimeout(() => { messsageDiv.textContent = ""; messsageDiv.className = ""; }, 3000);
 }
 
 function populateCategoryDropdown() {
@@ -155,13 +155,13 @@ function populateCategoryDropdown() {
     "pharmacy","toystore","vegetables"
   ];
 
-  const existingOptions = Array.from(categorySelect.options).map(opt => opt.value);
+  const existingOptions = Array.from(categorySelect.options).map(option => option.value);
 
-  categories.forEach(cat => {
-    if (!existingOptions.includes(cat)) {
+  categories.forEach(category => {
+    if (!existingOptions.includes(category)) {
       const option = document.createElement("option");
-      option.value = cat;
-      option.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+      option.value = category;
+      option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
       categorySelect.appendChild(option);
     }
   });
