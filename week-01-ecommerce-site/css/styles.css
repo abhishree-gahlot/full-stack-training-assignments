@@ -392,6 +392,14 @@ a
   .product-action {
     justify-content: center;
   }
+  .nav-actions {
+    width: 100%;
+    justify-content: center;  
+  }
+
+  .user-icon {
+    margin: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -441,4 +449,35 @@ a
   .quantity-wrapper {
     justify-content: center;
   }
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.user-icon {
+  font-size: 26px;
+  color: rgb(250, 252, 254);
+  cursor: pointer;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 20px;      
+  flex-shrink: 0;         
+
+  transition: all 0.25s ease;
+}
+
+.user-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }

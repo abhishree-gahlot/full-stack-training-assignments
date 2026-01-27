@@ -116,9 +116,7 @@ function showThankYouPopup() {
   });
 }
 
-/* ---------------- EVENTS ---------------- */
 
 document.addEventListener("cartUpdated", renderCart);
 
-/* Initial render */
 renderCart();
