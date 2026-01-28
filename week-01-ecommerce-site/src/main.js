@@ -59,3 +59,11 @@ function setupLoadMoreButton() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const user = getUserFromStorage();
+  const adminLink = document.getElementById("admin-link");
+
+  if (!user || user.role !== "admin") {
+    adminLink?.remove();
+  }
+});

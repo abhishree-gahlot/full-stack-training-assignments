@@ -1,4 +1,9 @@
 import ProductService from "../services/ProductService.js";
+import { protectAdminPage } from "../utils/adminGuard.js";
+import { clearUserFromStorage } from "../utils/storage.js";
+
+
+protectAdminPage();
 
 const productService = new ProductService();
 const form = document.getElementById("add-product-form");
@@ -167,3 +172,8 @@ function populateCategoryDropdown() {
   });
 }
 
+
+document.getElementById("logout-btn").addEventListener("click", () => {
+  clearUserFromStorage();
+  window.location.href = "login.html";
+});
