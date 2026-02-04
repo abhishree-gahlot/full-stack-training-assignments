@@ -7,13 +7,11 @@ export function getCurrentGreeting(): string
     return "Good Night";
 }
 
-export function formatDate(date: Date): string 
-{
-    const options: Intl.DateTimeFormatOptions = {
+export function formatDate(date: Date): string {
+    return date.toLocaleDateString(undefined, {
         weekday: "long",
         year: "numeric",
-        month: "short",
+        month: "long",
         day: "numeric"
-    };
-    return date.toLocaleDateString(undefined, options);
+    });
 }

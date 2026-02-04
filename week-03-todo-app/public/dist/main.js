@@ -2,29 +2,30 @@ import { renderHeaderUI } from "./ui/header.ui.js";
 import { renderSidebarUI } from "./ui/sidebar.ui.js";
 import { renderTodosUI } from "./ui/todos.ui.js";
 import { renderCompletedTodos } from "./ui/completed.ui.js";
-import { addTodo } from "./state/todo.state.js";
+import { addTodo, getTodos, updateTodo } from "./state/todo.state.js";
 import { TodoStatus } from "./models/todo.model.js";
-import { getTodos, updateTodo } from "./state/todo.state.js";
 const createTodoForm = document.getElementById("create-todo-form");
 const titleInput = document.getElementById("todo-title");
 const categorySelect = document.getElementById("todo-category");
 const prioritySelect = document.getElementById("todo-priority");
 const editForm = document.getElementById("edit-todo-form");
-const editTitle = document.getElementById("edit-title");
-const editCategory = document.getElementById("edit-category");
-const editPriority = document.getElementById("edit-priority");
+const editTitleInput = document.getElementById("edit-title");
+const editPrioritySelect = document.getElementById("edit-priority");
 let createTodoModal;
 let editTodoModal;
 let editingTodoId = null;
-document.addEventListener("DOMContentLoaded", async () => {
-    const modalEl = document.getElementById("createTodoModal");
-    createTodoModal = new bootstrap.Modal(modalEl);
-    await renderHeaderUI("Vijay");
+export function renderApp() {
     renderSidebarUI();
     renderTodosUI();
     renderCompletedTodos();
-    createTodoForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+}
+document.addEventListener("DOMContentLoaded", async () => {
+    createTodoModal = new bootstrap.Modal(document.getElementById("createTodoModal"));
+    editTodoModal = new bootstrap.Modal(document.getElementById("editTodoModal"));
+    await renderHeaderUI("Abhishree");
+    renderApp();
+    createTodoForm.onsubmit = (event) => {
+        event.preventDefault();
         const title = titleInput.value.trim();
         if (!title)
             return;
@@ -39,42 +40,36 @@ document.addEventListener("DOMContentLoaded", async () => {
         addTodo(newTodo);
         createTodoForm.reset();
         createTodoModal.hide();
-        renderSidebarUI();
-        renderTodosUI();
-        renderCompletedTodos();
-    });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const editModalEl = document.getElementById("editTodoModal");
-    if (!editModalEl)
-        return;
-    editTodoModal = new window.bootstrap.Modal(editModalEl);
-    const editTitleInput = document.getElementById("edit-title");
-    const editPrioritySelect = document.getElementById("edit-priority");
-    const editForm = document.getElementById("edit-todo-form");
-    window.addEventListener("edit-todo", (e) => {
-        const todo = e.detail;
+        renderApp();
+    };
+    window.addEventListener("edit-todo", (event) => {
+        const todo = event.detail;
         editingTodoId = todo.id;
         editTitleInput.value = todo.title;
         editPrioritySelect.value = todo.priority;
         editTodoModal.show();
     });
-    editForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+    editForm.onsubmit = (event) => {
+        event.preventDefault();
         if (editingTodoId === null)
             return;
-        const todoToUpdate = getTodos().find(todo => todo.id === editingTodoId);
-        if (!todoToUpdate)
+        const existingTodo = getTodos().find(todo => todo.id === editingTodoId);
+        if (!existingTodo)
             return;
         const updatedTodo = {
-            ...todoToUpdate,
+            ...existingTodo,
             title: editTitleInput.value.trim(),
             priority: editPrioritySelect.value
         };
         updateTodo(updatedTodo);
         editingTodoId = null;
         editTodoModal.hide();
-        import("./ui/todos.ui.js").then(m => m.renderTodosUI());
-    });
+        renderApp();
+    };
 });
+export function refreshUI() {
+    renderSidebarUI();
+    renderTodosUI();
+    renderCompletedTodos();
+}
 //# sourceMappingURL=main.js.map

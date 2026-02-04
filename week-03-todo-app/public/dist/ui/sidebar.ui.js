@@ -9,69 +9,76 @@ export function renderSidebarUI() {
     header.textContent = "Categories";
     header.className = "mb-3";
     sidebar.appendChild(header);
-    const listItem = document.createElement("ul");
-    listItem.className = "list-group mb-3";
-    const allListItem = createCategoryItem("ALL", getTodos().length);
-    listItem.appendChild(allListItem);
+    const list = document.createElement("ul");
+    list.className = "list-group mb-3";
+    const allItem = createCategoryItem("ALL", getTodos().length);
+    list.appendChild(allItem);
     Object.values(Category).forEach(category => {
         const count = getTodoByCategory(category).length;
         const item = createCategoryItem(category, count);
-        listItem.appendChild(item);
+        list.appendChild(item);
     });
-    sidebar.appendChild(listItem);
+    sidebar.appendChild(list);
     const addButton = document.createElement("button");
     addButton.className = "btn btn-success w-100";
     addButton.innerHTML = "&#10133; Create Todo";
-    addButton.addEventListener("click", () => openCreateTodoModal());
+    addButton.addEventListener("click", openCreateTodoModal);
     sidebar.appendChild(addButton);
 }
 function createCategoryItem(category, count) {
-    const listItem = document.createElement("li");
-    listItem.className = "list-group-item d-flex justify-content-between align-items-center list-group-item-action";
+    const item = document.createElement("li");
+    item.className =
+        "list-group-item d-flex justify-content-between align-items-center list-group-item-action";
     if (selectedCategory === category) {
-        listItem.classList.add("active");
+        item.classList.add("active");
     }
-    listItem.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    item.textContent = category.charAt(0).toUpperCase() + category.slice(1);
     const badge = document.createElement("span");
     badge.className = "badge bg-primary rounded-pill";
     badge.textContent = count.toString();
-    listItem.appendChild(badge);
-    listItem.addEventListener("click", () => {
+    item.appendChild(badge);
+    item.addEventListener("click", () => {
         selectedCategory = category;
         renderSidebarUI();
-        renderTodosByCategory(category);
+        renderTodosByCategory(selectedCategory);
     });
-    return listItem;
+    return item;
 }
 function renderTodosByCategory(category) {
     if (category === "ALL") {
         renderTodosUI();
+        return;
     }
-    else {
-        const todos = getTodoByCategory(category);
-        renderTodosFiltered(todos);
-    }
+    const todos = getTodoByCategory(category);
+    renderTodosFiltered(todos);
 }
-function renderTodosFiltered(filteredTodos) {
-    const pendingContainer = document.getElementById("todos-container");
-    const completedContainer = document.getElementById("completed-container");
-    pendingContainer.innerHTML = "";
-    completedContainer.innerHTML = "";
-    filteredTodos
+function renderTodosFiltered(todos) {
+    const container = document.getElementById("completed-container");
+    container.innerHTML = "";
+    const pendingHeading = document.createElement("h5");
+    pendingHeading.className = "text-uppercase text-secondary mb-3";
+    pendingHeading.textContent = "Todo List";
+    container.appendChild(pendingHeading);
+    todos
         .filter(todo => todo.status === TodoStatus.PENDING)
         .forEach(todo => {
-        const todoDiv = document.createElement("div");
-        todoDiv.className = "todo-item p-2 my-1 border rounded bg-dark text-light";
-        todoDiv.textContent = todo.title;
-        pendingContainer.appendChild(todoDiv);
+        const div = document.createElement("div");
+        div.className = "todo-item p-2 my-1 border rounded bg-dark text-light";
+        div.textContent = todo.title;
+        container.appendChild(div);
     });
-    filteredTodos
+    const completedHeading = document.createElement("h5");
+    completedHeading.className = "text-uppercase text-secondary mt-4 mb-3";
+    completedHeading.textContent = "Completed Todos";
+    container.appendChild(completedHeading);
+    todos
         .filter(todo => todo.status === TodoStatus.COMPLETED)
         .forEach(todo => {
-        const todoDiv = document.createElement("div");
-        todoDiv.className = "todo-item completed p-2 my-1 border rounded bg-secondary text-light";
-        todoDiv.textContent = todo.title;
-        completedContainer.appendChild(todoDiv);
+        const div = document.createElement("div");
+        div.className =
+            "todo-item completed p-2 my-1 border rounded bg-secondary text-light";
+        div.textContent = todo.title;
+        container.appendChild(div);
     });
 }
 function openCreateTodoModal() {
@@ -79,12 +86,16 @@ function openCreateTodoModal() {
     const modal = new bootstrap.Modal(modalEl);
     modal.show();
     const form = document.getElementById("create-todo-form");
-    form.onsubmit = (event) => {
+    form.onsubmit = event => {
         event.preventDefault();
         const title = document.getElementById("todo-title").value;
-        const category = document.getElementById("todo-category").value;
-        const priority = document.getElementById("todo-priority").value;
-        const newId = getTodos().length > 0 ? Math.max(...getTodos().map(todo => todo.id)) + 1 : 1;
+        const category = document.getElementById("todo-category")
+            .value;
+        const priority = document.getElementById("todo-priority")
+            .value;
+        const newId = getTodos().length > 0
+            ? Math.max(...getTodos().map(t => t.id)) + 1
+            : 1;
         const newTodo = {
             id: newId,
             title,

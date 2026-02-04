@@ -9,12 +9,11 @@ export function getCurrentGreeting() {
     return "Good Night";
 }
 export function formatDate(date) {
-    const options = {
+    return date.toLocaleDateString(undefined, {
         weekday: "long",
         year: "numeric",
-        month: "short",
+        month: "long",
         day: "numeric"
-    };
-    return date.toLocaleDateString(undefined, options);
+    });
 }
 //# sourceMappingURL=date.util.js.map

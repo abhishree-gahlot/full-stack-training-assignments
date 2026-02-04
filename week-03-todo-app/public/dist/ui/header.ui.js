@@ -1,20 +1,32 @@
-import { getCurrentGreeting, formatDate } from "../utils/date.util.js";
 import { getWeather } from "../services/weather.service.js";
-const headerEl = document.getElementById("header");
-export async function renderHeaderUI(name = "User") {
-    headerEl.innerHTML = "";
-    const greeting = document.createElement("h4");
-    greeting.textContent = `${getCurrentGreeting()}, ${name}!`;
-    const dateEl = document.createElement("p");
-    dateEl.textContent = formatDate(new Date());
-    const weatherEl = document.createElement("p");
+import { formatDate } from "../utils/date.util.js";
+const header = document.getElementById("header");
+export async function renderHeaderUI(userName) {
+    header.innerHTML = "";
+    const greeting = document.createElement("h3");
+    greeting.textContent = getGreeting(userName);
+    const dateElement = document.createElement("p");
+    dateElement.textContent = formatDate(new Date());
+    const weatherElement = document.createElement("p");
+    weatherElement.textContent = "Loading weather...";
+    header.append(greeting, dateElement, weatherElement);
+    const weather = await getWeather();
     try {
         const weather = await getWeather();
-        weatherEl.textContent = `Weather: ${weather.temp}°C, ${weather.condition}`;
+        weatherElement.textContent = `${weather.temp}°C • ${weather.condition}`;
     }
-    catch {
-        weatherEl.textContent = "Weather info unavailable";
+    catch (error) {
+        weatherElement.textContent = "Weather unavailable";
     }
-    headerEl.append(greeting, dateEl, weatherEl);
+}
+function getGreeting(name) {
+    const hour = new Date().getHours();
+    if (hour < 12)
+        return `Good Morning, ${name} ☀️`;
+    if (hour < 17)
+        return `Good Afternoon, ${name} 🌤`;
+    if (hour < 21)
+        return `Good Evening, ${name} 🌙`;
+    return `Good Night, ${name} 🌙`;
 }
 //# sourceMappingURL=header.ui.js.map

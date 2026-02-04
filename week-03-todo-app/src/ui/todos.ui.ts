@@ -84,24 +84,24 @@ function createTodoElement(todo: Todo): HTMLElement
 
     const rightDiv = document.createElement("div");
 
-    const editBtn = document.createElement("button");
-    editBtn.className = "btn btn-sm btn-outline-warning me-2";
-    editBtn.innerHTML = '<i class="bi bi-pencil"></i>';
-    editBtn.addEventListener("click", () => {
+    const editButton = document.createElement("button");
+    editButton.className = "btn btn-sm btn-outline-warning me-2";
+    editButton.innerHTML = '<i class="bi bi-pencil"></i>';
+    editButton.addEventListener("click", () => {
         window.dispatchEvent(
             new CustomEvent("edit-todo", { detail: todo })
         );
     });
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.className = "btn btn-sm btn-outline-danger";
-    deleteBtn.innerHTML = '<i class="bi bi-trash"></i>';
-    deleteBtn.addEventListener("click", () => {
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "btn btn-sm btn-outline-danger";
+    deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
+    deleteButton.addEventListener("click", () => {
         deleteTodo(todo.id);
         renderTodosUI();
     });
 
-    rightDiv.append(editBtn, deleteBtn);
+    rightDiv.append(editButton, deleteButton);
 
     todoDiv.append(leftDiv, rightDiv);
 

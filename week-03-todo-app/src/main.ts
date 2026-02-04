@@ -3,42 +3,46 @@ import { renderSidebarUI } from "./ui/sidebar.ui.js";
 import { renderTodosUI } from "./ui/todos.ui.js";
 import { renderCompletedTodos } from "./ui/completed.ui.js";
 
-import { addTodo } from "./state/todo.state.js";
+import { addTodo, getTodos, updateTodo } from "./state/todo.state.js";
 import { Todo, TodoPriority, TodoStatus, Category } from "./models/todo.model.js";
-import { getTodos, updateTodo } from "./state/todo.state.js";
 
 declare const bootstrap: any;
 
 const createTodoForm = document.getElementById("create-todo-form") as HTMLFormElement;
-const titleInput = document.getElementById( "todo-title") as HTMLInputElement;
+const titleInput = document.getElementById("todo-title") as HTMLInputElement;
 const categorySelect = document.getElementById("todo-category") as HTMLSelectElement;
 const prioritySelect = document.getElementById("todo-priority") as HTMLSelectElement;
 
 const editForm = document.getElementById("edit-todo-form") as HTMLFormElement;
-const editTitle = document.getElementById("edit-title") as HTMLInputElement;
-const editCategory = document.getElementById("edit-category") as HTMLSelectElement;
-const editPriority = document.getElementById("edit-priority") as HTMLSelectElement;
+const editTitleInput = document.getElementById("edit-title") as HTMLInputElement;
+const editPrioritySelect = document.getElementById("edit-priority") as HTMLSelectElement;
 
 let createTodoModal: any;
 let editTodoModal: any;
 let editingTodoId: number | null = null;
 
-
-document.addEventListener("DOMContentLoaded", async () => {
-
-    const modalEl = document.getElementById("createTodoModal")!;
-    createTodoModal = new bootstrap.Modal(modalEl);
-
-    await renderHeaderUI("Vijay");
+export function renderApp(): void {
     renderSidebarUI();
     renderTodosUI();
     renderCompletedTodos();
+}
 
-    createTodoForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+document.addEventListener("DOMContentLoaded", async () => {
+    createTodoModal = new bootstrap.Modal(
+        document.getElementById("createTodoModal")
+    );
+
+    editTodoModal = new bootstrap.Modal(
+        document.getElementById("editTodoModal")
+    );
+
+    await renderHeaderUI("Abhishree");
+    renderApp();
+
+    createTodoForm.onsubmit = (event) => {
+        event.preventDefault();
 
         const title = titleInput.value.trim();
-
         if (!title) return;
 
         const newTodo: Todo = {
@@ -53,27 +57,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         addTodo(newTodo);
 
         createTodoForm.reset();
-
         createTodoModal.hide();
 
-        renderSidebarUI();
-        renderTodosUI();
-        renderCompletedTodos();
-    });
-});
+        renderApp();
+    };
 
-document.addEventListener("DOMContentLoaded", () => {
-    const editModalEl = document.getElementById("editTodoModal");
-    if (!editModalEl) return;
-
-    editTodoModal = new (window as any).bootstrap.Modal(editModalEl);
-
-    const editTitleInput = document.getElementById("edit-title") as HTMLInputElement;
-    const editPrioritySelect = document.getElementById("edit-priority") as HTMLSelectElement;
-    const editForm = document.getElementById("edit-todo-form") as HTMLFormElement;
-
-    window.addEventListener("edit-todo", (e: any) => {
-        const todo: Todo = e.detail;
+    window.addEventListener("edit-todo", (event: any) => {
+        const todo: Todo = event.detail;
 
         editingTodoId = todo.id;
         editTitleInput.value = todo.title;
@@ -82,24 +72,33 @@ document.addEventListener("DOMContentLoaded", () => {
         editTodoModal.show();
     });
 
-    editForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (editingTodoId === null) return;
+    editForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (editingTodoId === null) return;
 
-    const todoToUpdate = getTodos().find(todo => todo.id === editingTodoId);
-    if (!todoToUpdate) return; 
+        const existingTodo = getTodos().find(
+            todo => todo.id === editingTodoId
+        );
+        if (!existingTodo) return;
 
-    const updatedTodo: Todo = {
-        ...todoToUpdate,
-        title: editTitleInput.value.trim(),
-        priority: editPrioritySelect.value as TodoPriority
+        const updatedTodo: Todo = {
+            ...existingTodo,
+            title: editTitleInput.value.trim(),
+            priority: editPrioritySelect.value as TodoPriority
+        };
+
+        updateTodo(updatedTodo);
+
+        editingTodoId = null;
+        editTodoModal.hide();
+
+        renderApp();
     };
-
-    updateTodo(updatedTodo);
-
-    editingTodoId = null;
-    editTodoModal.hide();
-
-    import("./ui/todos.ui.js").then(m => m.renderTodosUI());
-    });
 });
+
+export function refreshUI(): void {
+    renderSidebarUI();
+    renderTodosUI();
+    renderCompletedTodos();
+}
+    
