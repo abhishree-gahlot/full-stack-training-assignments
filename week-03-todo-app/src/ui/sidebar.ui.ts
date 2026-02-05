@@ -1,11 +1,12 @@
 import { Category, Todo, TodoPriority, TodoStatus } from "../models/todo.model.js";
 import { getTodos, getTodoByCategory, addTodo } from "../state/todo.state.js";
+import { renderCompletedTodos } from "./completed.ui.js";
 import { renderTodosUI } from "./todos.ui.js";
 
 declare const bootstrap: any;
 
 const sidebar = document.getElementById("sidebar")!;
-let selectedCategory: Category | "ALL" = "ALL";
+export let selectedCategory: Category | "ALL" = "ALL";
 
 export function renderSidebarUI(): void {
     sidebar.innerHTML = "";
@@ -61,9 +62,10 @@ function createCategoryItem(category: string, count: number): HTMLElement {
     return item;
 }
 
-function renderTodosByCategory(category: Category | "ALL"): void {
+export function renderTodosByCategory(category: Category | "ALL"): void {
     if (category === "ALL") {
         renderTodosUI();
+        renderCompletedTodos();
         return;
     }
 
@@ -144,3 +146,4 @@ function openCreateTodoModal(): void {
         renderSidebarUI();
     };
 }
+

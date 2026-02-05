@@ -1,8 +1,9 @@
 import { Category, TodoStatus } from "../models/todo.model.js";
 import { getTodos, getTodoByCategory, addTodo } from "../state/todo.state.js";
+import { renderCompletedTodos } from "./completed.ui.js";
 import { renderTodosUI } from "./todos.ui.js";
 const sidebar = document.getElementById("sidebar");
-let selectedCategory = "ALL";
+export let selectedCategory = "ALL";
 export function renderSidebarUI() {
     sidebar.innerHTML = "";
     const header = document.createElement("h4");
@@ -44,9 +45,10 @@ function createCategoryItem(category, count) {
     });
     return item;
 }
-function renderTodosByCategory(category) {
+export function renderTodosByCategory(category) {
     if (category === "ALL") {
         renderTodosUI();
+        renderCompletedTodos();
         return;
     }
     const todos = getTodoByCategory(category);

@@ -2,6 +2,8 @@ import { renderHeaderUI } from "./ui/header.ui.js";
 import { renderSidebarUI } from "./ui/sidebar.ui.js";
 import { renderTodosUI } from "./ui/todos.ui.js";
 import { renderCompletedTodos } from "./ui/completed.ui.js";
+import { selectedCategory } from "./ui/sidebar.ui.js";
+import { renderTodosByCategory } from "./ui/sidebar.ui.js";
 import { addTodo, getTodos, updateTodo } from "./state/todo.state.js";
 import { TodoStatus } from "./models/todo.model.js";
 const createTodoForm = document.getElementById("create-todo-form");
@@ -69,7 +71,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 export function refreshUI() {
     renderSidebarUI();
-    renderTodosUI();
-    renderCompletedTodos();
+    renderTodosByCategory(selectedCategory);
 }
 //# sourceMappingURL=main.js.map

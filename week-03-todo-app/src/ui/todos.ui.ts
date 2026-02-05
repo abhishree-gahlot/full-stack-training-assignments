@@ -1,3 +1,4 @@
+import { refreshUI } from "../main.js";
 import { Todo, TodoStatus, TodoPriority } from "../models/todo.model.js";
 import { getTodos, toggleTodoStatus, deleteTodo } from "../state/todo.state.js";
 
@@ -8,7 +9,6 @@ const completedContainer = document.getElementById("completed-container")!;
 export function renderTodosUI (): void 
 {
     renderPendingTodos();
-    renderCompletedTodos();
 }
 
 function renderPendingTodos(): void 
@@ -33,30 +33,6 @@ function renderPendingTodos(): void
     });
 }
 
-function renderCompletedTodos(): void 
-{
-    completedContainer.innerHTML = "";
-
-    const todos = getTodos()
-        .filter(todo => todo.status === TodoStatus.COMPLETED)
-        .sort((a, b) => {
-                    if (a.priority === TodoPriority.IMPORTANT && b.priority !== TodoPriority.IMPORTANT) 
-                        return -1;
-                    if (a.priority !== TodoPriority.IMPORTANT && b.priority === TodoPriority.IMPORTANT) 
-                        return 1;
-                    else
-                        return 0; 
-        }
-    );
-
-    todos.forEach(todo => {
-        const todoDiv = document.createElement("div");
-        todoDiv.className = "todo-item completed p-2 my-1 border rounded bg-secondary text-light";
-        todoDiv.textContent = todo.title;
-        completedContainer.appendChild(todoDiv);
-    });
-}
-
 function createTodoElement(todo: Todo): HTMLElement 
 {
     const todoDiv = document.createElement("div");
@@ -71,7 +47,7 @@ function createTodoElement(todo: Todo): HTMLElement
     checkbox.checked = todo.status === TodoStatus.COMPLETED;
     checkbox.addEventListener("change", () => {
         toggleTodoStatus(todo.id);
-        renderTodosUI();
+        refreshUI();
     });
 
     const title = document.createElement("span");
@@ -97,8 +73,8 @@ function createTodoElement(todo: Todo): HTMLElement
     deleteButton.className = "btn btn-sm btn-outline-danger";
     deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
     deleteButton.addEventListener("click", () => {
-        deleteTodo(todo.id);
-        renderTodosUI();
+       deleteTodo(todo.id);
+        refreshUI();
     });
 
     rightDiv.append(editButton, deleteButton);

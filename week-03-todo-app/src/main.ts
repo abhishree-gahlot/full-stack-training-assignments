@@ -2,6 +2,9 @@ import { renderHeaderUI } from "./ui/header.ui.js";
 import { renderSidebarUI } from "./ui/sidebar.ui.js";
 import { renderTodosUI } from "./ui/todos.ui.js";
 import { renderCompletedTodos } from "./ui/completed.ui.js";
+import { selectedCategory } from "./ui/sidebar.ui.js";
+import {renderTodosByCategory} from "./ui/sidebar.ui.js";
+
 
 import { addTodo, getTodos, updateTodo } from "./state/todo.state.js";
 import { Todo, TodoPriority, TodoStatus, Category } from "./models/todo.model.js";
@@ -98,7 +101,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 export function refreshUI(): void {
     renderSidebarUI();
-    renderTodosUI();
-    renderCompletedTodos();
+    renderTodosByCategory(selectedCategory);
 }
     
