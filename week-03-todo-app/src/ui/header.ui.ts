@@ -3,8 +3,7 @@ import { formatDate } from "../utils/date.util.js";
 
 const header = document.getElementById("header")!;
 
-export async function renderHeaderUI(userName: string): Promise<void> 
-{
+export async function renderHeaderUI(userName: string): Promise<void> {
     header.innerHTML = "";
 
     const greeting = document.createElement("h3");
@@ -19,33 +18,27 @@ export async function renderHeaderUI(userName: string): Promise<void>
     header.append(greeting, dateElement, weatherElement);
 
     const weather = await getWeather();
-    try 
-    {
+    try {
         const weather = await getWeather();
         weatherElement.textContent = `${weather.temperature}°C • ${weather.condition}`;
-    } 
-    catch (error) 
-    {
+    }
+    catch (error) {
         weatherElement.textContent = "Weather unavailable";
     }
 }
 
-function getGreeting(name: string): string 
-{
+function getGreeting(name: string): string {
     const hour = new Date().getHours();
 
-    if (hour < 12) 
-    {
+    if (hour < 12) {
         return `Good Morning, ${name} ☀️`;
     }
-    if (hour < 17) 
-    {
+    if (hour < 17) {
         return `Good Afternoon, ${name} 🌤`;
     }
-    if (hour < 21) 
-    {
+    if (hour < 21) {
         return `Good Evening, ${name} 🌙`;
     }
-    
+
     return `Good Night, ${name} 🌙`;
 }

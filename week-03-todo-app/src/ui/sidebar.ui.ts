@@ -8,8 +8,7 @@ declare const bootstrap: any;
 const sidebar = document.getElementById("sidebar")!;
 export let selectedCategory: Category | "ALL" = "ALL";
 
-export function renderSidebarUI(): void 
-{
+export function renderSidebarUI(): void {
     sidebar.innerHTML = "";
 
     const header = document.createElement("h4");
@@ -38,13 +37,11 @@ export function renderSidebarUI(): void
     sidebar.appendChild(addButton);
 }
 
-function createCategoryItem(category: string, count: number): HTMLElement 
-{
+function createCategoryItem(category: string, count: number): HTMLElement {
     const item = document.createElement("li");
     item.className = "list-group-item d-flex justify-content-between align-items-center list-group-item-action";
 
-    if (selectedCategory === category) 
-    {
+    if (selectedCategory === category) {
         item.classList.add("active");
     }
 
@@ -64,10 +61,8 @@ function createCategoryItem(category: string, count: number): HTMLElement
     return item;
 }
 
-export function renderTodosByCategory(category: Category | "ALL"): void 
-{
-    if (category === "ALL") 
-    {
+export function renderTodosByCategory(category: Category | "ALL"): void {
+    if (category === "ALL") {
         renderTodosUI();
         renderCompletedTodos();
         return;
@@ -77,8 +72,7 @@ export function renderTodosByCategory(category: Category | "ALL"): void
     renderTodosFiltered(todos);
 }
 
-function renderTodosFiltered(todos: readonly Todo[]): void 
-{
+function renderTodosFiltered(todos: readonly Todo[]): void {
     const container = document.getElementById("completed-container")!;
     container.innerHTML = "";
 
@@ -88,7 +82,7 @@ function renderTodosFiltered(todos: readonly Todo[]): void
     container.appendChild(pendingHeading);
 
     todos
-        .filter(todo => todo.status === TodoStatus.PENDING)
+        .filter(todo => todo.status === 0)
         .forEach(todo => {
             const div = document.createElement("div");
             div.className = "todo-item p-2 my-1 border rounded bg-dark text-light";
@@ -112,8 +106,7 @@ function renderTodosFiltered(todos: readonly Todo[]): void
         });
 }
 
-function openCreateTodoModal(): void 
-{
+function openCreateTodoModal(): void {
     const modalElement = document.getElementById("createTodoModal")!;
     const modal = new bootstrap.Modal(modalElement);
     modal.show();

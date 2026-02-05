@@ -21,12 +21,15 @@ export async function renderHeaderUI(userName) {
 }
 function getGreeting(name) {
     const hour = new Date().getHours();
-    if (hour < 12)
+    if (hour < 12) {
         return `Good Morning, ${name} ☀️`;
-    if (hour < 17)
+    }
+    if (hour < 17) {
         return `Good Afternoon, ${name} 🌤`;
-    if (hour < 21)
+    }
+    if (hour < 21) {
         return `Good Evening, ${name} 🌙`;
+    }
     return `Good Night, ${name} 🌙`;
 }
 //# sourceMappingURL=header.ui.js.map

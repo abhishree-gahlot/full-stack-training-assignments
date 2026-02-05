@@ -4,10 +4,9 @@ import { refreshUI } from "../main.js";
 
 const completedContainer = document.getElementById("completed-container")!;
 
-export function renderCompletedTodos(): void 
-{
+export function renderCompletedTodos(): void {
     completedContainer.innerHTML = "";
-    
+
     const heading = document.createElement("h5");
     heading.className = "text-uppercase text-secondary mb-3";
     heading.textContent = "COMPLETED TODOS";
@@ -36,7 +35,7 @@ export function renderCompletedTodos(): void
             toggleTodoStatus(todo.id);
             refreshUI();
         });
-        
+
         todoDiv.append(title, undoButton);
         completedContainer.appendChild(todoDiv);
     });

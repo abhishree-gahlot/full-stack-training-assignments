@@ -3,8 +3,8 @@ export declare enum TodoPriority {
     NORMAL = "normal"
 }
 export declare enum TodoStatus {
-    PENDING = "pending",
-    COMPLETED = "completed"
+    PENDING = 0,
+    COMPLETED = 1
 }
 export declare enum Category {
     WORK = "work",

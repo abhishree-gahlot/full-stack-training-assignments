@@ -9,7 +9,7 @@ export function renderTodosUI() {
 function renderPendingTodos() {
     pendingContainer.innerHTML = "";
     const todos = getTodos()
-        .filter(todo => todo.status === TodoStatus.PENDING)
+        .filter(todo => todo.status === 0)
         .sort((a, b) => {
         if (a.priority === TodoPriority.IMPORTANT && b.priority !== TodoPriority.IMPORTANT)
             return -1;

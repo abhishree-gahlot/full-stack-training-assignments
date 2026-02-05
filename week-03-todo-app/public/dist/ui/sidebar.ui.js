@@ -28,8 +28,7 @@ export function renderSidebarUI() {
 }
 function createCategoryItem(category, count) {
     const item = document.createElement("li");
-    item.className =
-        "list-group-item d-flex justify-content-between align-items-center list-group-item-action";
+    item.className = "list-group-item d-flex justify-content-between align-items-center list-group-item-action";
     if (selectedCategory === category) {
         item.classList.add("active");
     }
@@ -62,7 +61,7 @@ function renderTodosFiltered(todos) {
     pendingHeading.textContent = "Todo List";
     container.appendChild(pendingHeading);
     todos
-        .filter(todo => todo.status === TodoStatus.PENDING)
+        .filter(todo => todo.status === 0)
         .forEach(todo => {
         const div = document.createElement("div");
         div.className = "todo-item p-2 my-1 border rounded bg-dark text-light";
@@ -84,8 +83,8 @@ function renderTodosFiltered(todos) {
     });
 }
 function openCreateTodoModal() {
-    const modalEl = document.getElementById("createTodoModal");
-    const modal = new bootstrap.Modal(modalEl);
+    const modalElement = document.getElementById("createTodoModal");
+    const modal = new bootstrap.Modal(modalElement);
     modal.show();
     const form = document.getElementById("create-todo-form");
     form.onsubmit = event => {
@@ -96,7 +95,7 @@ function openCreateTodoModal() {
         const priority = document.getElementById("todo-priority")
             .value;
         const newId = getTodos().length > 0
-            ? Math.max(...getTodos().map(t => t.id)) + 1
+            ? Math.max(...getTodos().map(todoId => todoId.id)) + 1
             : 1;
         const newTodo = {
             id: newId,

@@ -6,35 +6,32 @@ import { getTodos, toggleTodoStatus, deleteTodo } from "../state/todo.state.js";
 const pendingContainer = document.getElementById("todos-container")!;
 const completedContainer = document.getElementById("completed-container")!;
 
-export function renderTodosUI (): void 
-{
+export function renderTodosUI(): void {
     renderPendingTodos();
 }
 
-function renderPendingTodos(): void 
-{
+function renderPendingTodos(): void {
     pendingContainer.innerHTML = "";
 
     const todos = getTodos()
-                .filter(todo => todo.status === TodoStatus.PENDING)
-                .sort((a, b) => {
-                    if (a.priority === TodoPriority.IMPORTANT && b.priority !== TodoPriority.IMPORTANT) 
-                        return -1;
-                    if (a.priority !== TodoPriority.IMPORTANT && b.priority === TodoPriority.IMPORTANT) 
-                        return 1;
-                    else
-                        return 0; 
-                }
-    );
+        .filter(todo => todo.status === 0)
+        .sort((a, b) => {
+            if (a.priority === TodoPriority.IMPORTANT && b.priority !== TodoPriority.IMPORTANT)
+                return -1;
+            if (a.priority !== TodoPriority.IMPORTANT && b.priority === TodoPriority.IMPORTANT)
+                return 1;
+            else
+                return 0;
+        }
+        );
 
     todos.forEach(todo => {
-                    const todoDiv = createTodoElement(todo);
-                    pendingContainer.appendChild(todoDiv);
+        const todoDiv = createTodoElement(todo);
+        pendingContainer.appendChild(todoDiv);
     });
 }
 
-function createTodoElement(todo: Todo): HTMLElement 
-{
+function createTodoElement(todo: Todo): HTMLElement {
     const todoDiv = document.createElement("div");
     todoDiv.className = "todo-item d-flex justify-content-between align-items-center p-2 my-1 border rounded";
 
@@ -55,7 +52,7 @@ function createTodoElement(todo: Todo): HTMLElement
     if (todo.status === TodoStatus.COMPLETED) {
         title.style.textDecoration = "line-through";
     }
-    
+
     leftDiv.append(checkbox, title);
 
     const rightDiv = document.createElement("div");
@@ -73,7 +70,7 @@ function createTodoElement(todo: Todo): HTMLElement
     deleteButton.className = "btn btn-sm btn-outline-danger";
     deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
     deleteButton.addEventListener("click", () => {
-       deleteTodo(todo.id);
+        deleteTodo(todo.id);
         refreshUI();
     });
 

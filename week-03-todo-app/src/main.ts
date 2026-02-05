@@ -3,7 +3,7 @@ import { renderSidebarUI } from "./ui/sidebar.ui.js";
 import { renderTodosUI } from "./ui/todos.ui.js";
 import { renderCompletedTodos } from "./ui/completed.ui.js";
 import { selectedCategory } from "./ui/sidebar.ui.js";
-import {renderTodosByCategory} from "./ui/sidebar.ui.js";
+import { renderTodosByCategory } from "./ui/sidebar.ui.js";
 
 
 import { addTodo, getTodos, updateTodo } from "./state/todo.state.js";
@@ -24,8 +24,7 @@ let createTodoModal: any;
 let editTodoModal: any;
 let editingTodoId: number | null = null;
 
-export function renderApp(): void 
-{
+export function renderApp(): void {
     renderSidebarUI();
     renderTodosUI();
     renderCompletedTodos();
@@ -104,4 +103,3 @@ export function refreshUI(): void {
     renderSidebarUI();
     renderTodosByCategory(selectedCategory);
 }
-    

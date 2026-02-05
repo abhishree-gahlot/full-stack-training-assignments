@@ -1,11 +1,9 @@
-export interface Weather 
-{
+export interface Weather {
     temperature: number;
     condition: string;
 }
 
-export async function getWeather(): Promise<Weather> 
-{
+export async function getWeather(): Promise<Weather> {
     const url =
         "https://api.open-meteo.com/v1/forecast" +
         "?latitude=26.9124" +

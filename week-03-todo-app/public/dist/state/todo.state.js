@@ -1,4 +1,3 @@
-import { TodoStatus } from "../models/todo.model.js";
 import { loadTodos, saveTodos } from "../services/storage.service.js";
 let todos = loadTodos();
 export function getTodos() {
@@ -13,8 +12,9 @@ export function addTodo(inputTodo) {
 }
 export function updateTodo(updatedTodo) {
     const index = todos.findIndex(todo => todo.id === updatedTodo.id);
-    if (index === -1)
+    if (index === -1) {
         return todos;
+    }
     todos[index] = {
         id: updatedTodo.id,
         title: updatedTodo.title,
@@ -30,11 +30,8 @@ export function deleteTodo(id) {
     saveTodos(todos);
 }
 export function toggleTodoStatus(id) {
-    todos = todos.map(todo => id === todo.id
-        ? { ...todo,
-            status: todo.status === TodoStatus.PENDING
-                ? TodoStatus.COMPLETED : TodoStatus.PENDING
-        }
+    todos = todos.map(todo => todo.id === id
+        ? { ...todo, status: 1 - todo.status }
         : todo);
     saveTodos(todos);
 }

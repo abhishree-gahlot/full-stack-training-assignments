@@ -1,5 +1,4 @@
-export function getCurrentGreeting(): string 
-{
+export function getCurrentGreeting(): string {
     const hour = new Date().getHours();
     if (hour >= 5 && hour < 12) return "Good Morning";
     if (hour >= 12 && hour < 17) return "Good Afternoon";
@@ -7,8 +6,7 @@ export function getCurrentGreeting(): string
     return "Good Night";
 }
 
-export function formatDate(date: Date): string 
-{
+export function formatDate(date: Date): string {
     return date.toLocaleDateString(undefined, {
         weekday: "long",
         year: "numeric",

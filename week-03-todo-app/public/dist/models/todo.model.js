@@ -6,8 +6,8 @@ export var TodoPriority;
 ;
 export var TodoStatus;
 (function (TodoStatus) {
-    TodoStatus["PENDING"] = "pending";
-    TodoStatus["COMPLETED"] = "completed";
+    TodoStatus[TodoStatus["PENDING"] = 0] = "PENDING";
+    TodoStatus[TodoStatus["COMPLETED"] = 1] = "COMPLETED";
 })(TodoStatus || (TodoStatus = {}));
 ;
 export var Category;
