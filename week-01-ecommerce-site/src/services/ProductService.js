@@ -66,7 +66,7 @@ export default class ProductService {
   *productPagerByCategoryRoundRobin(pageSize = 5) {
     const categories = this.getCategories();
     const categoryIndexes = {}; 
-    categories.forEach(cat => categoryIndexes[cat] = 0);
+    categories.forEach(category => categoryIndexes[category] = 0);
 
     let moreProducts = true;
     while (moreProducts) {

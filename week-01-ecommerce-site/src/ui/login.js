@@ -12,10 +12,8 @@ const displayLoginError = (loginForm, errorMessage) => {
 customerForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const customerEmail =
-    document.getElementById("customer-email").value.trim();
-  const customerPassword =
-    document.getElementById("customer-password").value.trim();
+  const customerEmail = document.getElementById("customer-email").value.trim();
+  const customerPassword = document.getElementById("customer-password").value.trim();
 
   toggleLoader(customerForm, true);
 
@@ -33,10 +31,8 @@ customerForm.addEventListener("submit", async (event) => {
 adminForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const adminEmail =
-    document.getElementById("admin-email").value.trim();
-  const adminPassword =
-    document.getElementById("admin-password").value.trim();
+  const adminEmail = document.getElementById("admin-email").value.trim();
+  const adminPassword = document.getElementById("admin-password").value.trim();
 
   toggleLoader(adminForm, true);
 
