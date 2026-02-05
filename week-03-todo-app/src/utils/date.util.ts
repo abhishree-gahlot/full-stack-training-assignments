@@ -7,7 +7,8 @@ export function getCurrentGreeting(): string
     return "Good Night";
 }
 
-export function formatDate(date: Date): string {
+export function formatDate(date: Date): string 
+{
     return date.toLocaleDateString(undefined, {
         weekday: "long",
         year: "numeric",

@@ -8,7 +8,8 @@ declare const bootstrap: any;
 const sidebar = document.getElementById("sidebar")!;
 export let selectedCategory: Category | "ALL" = "ALL";
 
-export function renderSidebarUI(): void {
+export function renderSidebarUI(): void 
+{
     sidebar.innerHTML = "";
 
     const header = document.createElement("h4");
@@ -37,12 +38,13 @@ export function renderSidebarUI(): void {
     sidebar.appendChild(addButton);
 }
 
-function createCategoryItem(category: string, count: number): HTMLElement {
+function createCategoryItem(category: string, count: number): HTMLElement 
+{
     const item = document.createElement("li");
-    item.className =
-        "list-group-item d-flex justify-content-between align-items-center list-group-item-action";
+    item.className = "list-group-item d-flex justify-content-between align-items-center list-group-item-action";
 
-    if (selectedCategory === category) {
+    if (selectedCategory === category) 
+    {
         item.classList.add("active");
     }
 
@@ -62,8 +64,10 @@ function createCategoryItem(category: string, count: number): HTMLElement {
     return item;
 }
 
-export function renderTodosByCategory(category: Category | "ALL"): void {
-    if (category === "ALL") {
+export function renderTodosByCategory(category: Category | "ALL"): void 
+{
+    if (category === "ALL") 
+    {
         renderTodosUI();
         renderCompletedTodos();
         return;
@@ -73,7 +77,8 @@ export function renderTodosByCategory(category: Category | "ALL"): void {
     renderTodosFiltered(todos);
 }
 
-function renderTodosFiltered(todos: readonly Todo[]): void {
+function renderTodosFiltered(todos: readonly Todo[]): void 
+{
     const container = document.getElementById("completed-container")!;
     container.innerHTML = "";
 
@@ -107,9 +112,10 @@ function renderTodosFiltered(todos: readonly Todo[]): void {
         });
 }
 
-function openCreateTodoModal(): void {
-    const modalEl = document.getElementById("createTodoModal")!;
-    const modal = new bootstrap.Modal(modalEl);
+function openCreateTodoModal(): void 
+{
+    const modalElement = document.getElementById("createTodoModal")!;
+    const modal = new bootstrap.Modal(modalElement);
     modal.show();
 
     const form = document.getElementById("create-todo-form") as HTMLFormElement;
@@ -125,7 +131,7 @@ function openCreateTodoModal(): void {
 
         const newId =
             getTodos().length > 0
-                ? Math.max(...getTodos().map(t => t.id)) + 1
+                ? Math.max(...getTodos().map(todoId => todoId.id)) + 1
                 : 1;
 
         const newTodo: Todo = {

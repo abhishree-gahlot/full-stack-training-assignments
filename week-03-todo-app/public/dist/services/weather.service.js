@@ -6,7 +6,7 @@ export async function getWeather() {
     const response = await fetch(url);
     const data = await response.json();
     return {
-        temp: Math.round(data.current_weather.temperature),
+        temperature: Math.round(data.current_weather.temperature),
         condition: mapWeatherCodeToText(data.current_weather.weathercode)
     };
 }

@@ -20,9 +20,14 @@ export function addTodo( inputTodo : Todo) : void
     saveTodos(todos); 
 }
 
-export function updateTodo(updatedTodo: Todo): readonly Todo[] {
+export function updateTodo(updatedTodo: Todo): readonly Todo[] 
+{
     const index = todos.findIndex(todo => todo.id === updatedTodo.id);
-    if (index === -1) return todos; 
+    
+    if (index === -1) 
+    {
+        return todos; 
+    }
 
     todos[index] = {
         id: updatedTodo.id,
@@ -52,5 +57,6 @@ export function toggleTodoStatus( id : number ) : void
                             }  
                         : todo
     );
+    
     saveTodos(todos);
 }

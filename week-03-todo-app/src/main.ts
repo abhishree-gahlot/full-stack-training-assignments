@@ -24,7 +24,8 @@ let createTodoModal: any;
 let editTodoModal: any;
 let editingTodoId: number | null = null;
 
-export function renderApp(): void {
+export function renderApp(): void 
+{
     renderSidebarUI();
     renderTodosUI();
     renderCompletedTodos();

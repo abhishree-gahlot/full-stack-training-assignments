@@ -1,27 +1,32 @@
-body {
+body 
+{
     background-color: #121212;
     color: #e0e0e0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-ul {
+ul 
+{
     list-style-type: none;
     padding-left: 0;
 }
 
 
-#sidebar {
+#sidebar 
+{
     background-color: #1e1e1e;
     height: 100%;
     overflow-y: auto;
     border-right: 1px solid #333;
 }
 
-#sidebar h4 {
+#sidebar h4 
+{
     color: #fff;
 }
 
-.list-group-item {
+.list-group-item 
+{
     background-color: #1e1e1e;
     color: #e0e0e0;
     cursor: pointer;
@@ -29,17 +34,20 @@ ul {
 }
 
 .list-group-item.active,
-.list-group-item:hover {
+.list-group-item:hover 
+{
     background-color: #3a3a3a;
     color: #fff;
 }
 
-.list-group-item .badge {
+.list-group-item .badge 
+{
     background-color: #007bff;
     color: #fff;
 }
 
-#sidebar .btn-success {
+#sidebar .btn-success 
+{
     margin-top: 1rem;
     background-color: #007bff;
     border-color: #007bff;
@@ -47,23 +55,27 @@ ul {
     transition: background-color 0.2s;
 }
 
-#sidebar .btn-success:hover {
+#sidebar .btn-success:hover 
+{
     background-color: #0056b3;
 }
 
 
-#header h4 {
+#header h4 
+{
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-#header p {
+#header p 
+{
     font-size: 0.9rem;
     color: #cfcfcf;
 }
 
 
-.todo-item {
+.todo-item 
+{
     background-color: #1e1e1e;
     border: 1px solid #333;
     border-radius: 6px;
@@ -75,37 +87,44 @@ ul {
     transition: background-color 0.2s, transform 0.1s;
 }
 
-.todo-item:hover {
+.todo-item:hover 
+{
     background-color: #2a2a2a;
     transform: translateY(-1px);
 }
 
-.todo-item.completed {
+.todo-item.completed 
+{
     background-color: #333;
     color: #9e9e9e;
     text-decoration: line-through;
 }
 
-.todo-item.important {
+.todo-item.important 
+{
     border-left: 4px solid #ff5252;
 }
 
-.todo-item button {
+.todo-item button 
+{
     border-radius: 4px;
     font-size: 0.9rem;
 }
 
-.todo-item button i {
+.todo-item button i 
+{
     font-size: 1rem;
 }
 
-.todo-item input[type="checkbox"] {
+.todo-item input[type="checkbox"] 
+{
     transform: scale(1.2);
     margin-right: 0.5rem;
 }
 
 
-#completed-container {
+#completed-container 
+{
     background-color: #1e1e1e;
     padding: 0.5rem;
     border-left: 1px solid #333;
@@ -113,40 +132,48 @@ ul {
     overflow-y: auto;
 }
 
-#completed-container .btn-outline-warning {
+#completed-container .btn-outline-warning 
+{
     font-size: 0.8rem;
 }
 
 
-.modal-content {
+.modal-content 
+{
     background-color: #1e1e1e;
     color: #e0e0e0;
     border-radius: 8px;
 }
 
-.modal-header, .modal-footer {
+.modal-header, .modal-footer 
+{
     border-color: #333;
 }
 
-.modal-title {
+.modal-title 
+{
     font-weight: 600;
 }
 
 
-::-webkit-scrollbar {
+::-webkit-scrollbar 
+{
     width: 8px;
 }
 
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track 
+{
     background: #1e1e1e;
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb 
+{
     background-color: #555;
     border-radius: 4px;
 }
 
-.text-light-grey {
+.text-light-grey 
+{
     color: #cfcfcf;
 }
 

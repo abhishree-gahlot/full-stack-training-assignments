@@ -13,7 +13,7 @@ export async function renderHeaderUI(userName) {
     const weather = await getWeather();
     try {
         const weather = await getWeather();
-        weatherElement.textContent = `${weather.temp}°C • ${weather.condition}`;
+        weatherElement.textContent = `${weather.temperature}°C • ${weather.condition}`;
     }
     catch (error) {
         weatherElement.textContent = "Weather unavailable";

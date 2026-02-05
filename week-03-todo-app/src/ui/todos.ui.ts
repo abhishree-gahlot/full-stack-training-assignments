@@ -55,7 +55,7 @@ function createTodoElement(todo: Todo): HTMLElement
     if (todo.status === TodoStatus.COMPLETED) {
         title.style.textDecoration = "line-through";
     }
-
+    
     leftDiv.append(checkbox, title);
 
     const rightDiv = document.createElement("div");

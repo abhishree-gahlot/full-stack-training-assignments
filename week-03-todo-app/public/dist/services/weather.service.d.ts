@@ -1,5 +1,5 @@
 export interface Weather {
-    temp: number;
+    temperature: number;
     condition: string;
 }
 export declare function getWeather(): Promise<Weather>;
